@@ -113,6 +113,7 @@ Partial Class Log_In
         ' lblNotMem
         ' 
         lblNotMem.AutoSize = True
+        lblNotMem.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         lblNotMem.Location = New Point(12, 268)
         lblNotMem.Name = "lblNotMem"
         lblNotMem.Size = New Size(217, 15)
