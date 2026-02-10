@@ -68,10 +68,37 @@
             Exit Sub
         End If
 
-        'length check for postcode
-        If Len(Postcode) <> 7 Then
-            MsgBox("", 48)
+        'Range check for postcode, incase they include/exclude the space
+        If Len(Postcode) < 6 > 7 Then
+            MsgBox("Please enter a valid postcode", 48)
+            Exit Sub
         End If
+
+        'Making a custom CustomerID
+        Dim CustomerID As String
+        Dim RNumber As Integer
+
+        RNumber = Math.Ceiling(Rnd() * 100)
+
+        CustomerID = txtFName.Text.Substring(0, 1).ToUpper & txtSName.Text.Substring(0, 1).ToLower & txtEmail.Text.Substring(0, 2) & RNumber
+
+        Dim SaveCustomerID As String
+
+        SaveCustomerID = InputBox("This is your CustomerID: " & CustomerID & vbCrLf & "Make sure to make a note of this before continuing" & vbCrLf & "Do not share this ID with others as well." & vbCrLf & vbCrLf & "Type Y to continue and if you have noted this down.", 48)
+
+        'Saving the data and save customerID with these
+        Dim CustomerInfo As System.IO.StreamWriter
+        Dim CustomerMailDetail As System.IO.StreamWriter
+
+        CustomerInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerInfo.txt"), True)
+        CustomerInfo.WriteLine(CustomerID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNum)
+        CustomerInfo.Close()
+
+        CustomerMailDetail = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerMailDetail.txt"), True)
+        CustomerMailDetail.WriteLine(CustomerID & "," & Street & "," & Town & "," & Postcode)
+        CustomerMailDetail.Close()
+
+        MsgBox("Data Saved!" & vbCrLf & "You are now an Angel Slimes Member!")
 
     End Sub
 End Class
