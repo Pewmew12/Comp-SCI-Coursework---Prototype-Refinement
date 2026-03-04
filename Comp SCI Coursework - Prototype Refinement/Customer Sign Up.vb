@@ -80,25 +80,36 @@
 
         RNumber = Math.Ceiling(Rnd() * 100)
 
+        'CustomerID made from first letter of FName, first letter of SName and first two letters of email and a random number 1-100
         CustomerID = txtFName.Text.Substring(0, 1).ToUpper & txtSName.Text.Substring(0, 1).ToLower & txtEmail.Text.Substring(0, 2) & RNumber
 
         Dim SaveCustomerID As String
 
         SaveCustomerID = InputBox("This is your CustomerID: " & CustomerID & vbCrLf & "Make sure to make a note of this before continuing" & vbCrLf & "Do not share this ID with others as well." & vbCrLf & vbCrLf & "Type Y to continue and if you have noted this down.", 48)
 
+        If SaveCustomerID = "Y" Or SaveCustomerID = "y" Then
+            MsgBox("Confirmed!")
+        ElseIf SaveCustomerID <> "Y" Or SaveCustomerID <> "y" Then
+            MsgBox("Saving Canceled", 48)
+            Exit Sub
+        End If
+
         'Saving the data and save customerID with these
         Dim CustomerInfo As System.IO.StreamWriter
         Dim CustomerMailDetail As System.IO.StreamWriter
 
+        'Customer Info Details saved seperately
         CustomerInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerInfo.txt"), True)
         CustomerInfo.WriteLine(CustomerID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNum)
         CustomerInfo.Close()
 
+        'Customer Mail Details saved seperately
         CustomerMailDetail = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerMailDetail.txt"), True)
         CustomerMailDetail.WriteLine(CustomerID & "," & Street & "," & Town & "," & Postcode)
         CustomerMailDetail.Close()
 
         MsgBox("Data Saved!" & vbCrLf & "You are now an Angel Slimes Member!")
+        MsgBox("Reminder: Your CustomerID is " & CustomerID)
 
     End Sub
 End Class

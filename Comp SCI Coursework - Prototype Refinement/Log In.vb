@@ -13,4 +13,33 @@
         Me.Close()
 
     End Sub
+
+    Private Sub Log_In_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'declaring variables
+        Dim FName As String = txtFName.Text
+        Dim SName As String = txtSName.Text
+        Dim ID As String = txtID.Text
+
+        'Searching function
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 5) As String
+        Dim line As String
+
+        Dim SearchID As String
+        SearchID = txtID.Text
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(0) = SearchID Then
+                MsgBox("id correct")
+            End If
+
+        Loop Until (file.EndOfStream)
+
+    End Sub
 End Class

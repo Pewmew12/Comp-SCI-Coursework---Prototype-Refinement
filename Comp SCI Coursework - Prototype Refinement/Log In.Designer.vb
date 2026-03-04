@@ -24,14 +24,15 @@ Partial Class Log_In
     Private Sub InitializeComponent()
         Label1 = New Label()
         butLogin = New Button()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
+        txtFName = New TextBox()
+        txtSName = New TextBox()
+        txtID = New TextBox()
         Label2 = New Label()
         Label3 = New Label()
         butBack = New Button()
         Label4 = New Label()
         lblNotMem = New Label()
+        lblForgotID = New Label()
         SuspendLayout()
         ' 
         ' Label1
@@ -52,26 +53,26 @@ Partial Class Log_In
         butLogin.Text = "Log In"
         butLogin.UseVisualStyleBackColor = True
         ' 
-        ' TextBox1
+        ' txtFName
         ' 
-        TextBox1.Location = New Point(228, 78)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(238, 23)
-        TextBox1.TabIndex = 2
+        txtFName.Location = New Point(228, 78)
+        txtFName.Name = "txtFName"
+        txtFName.Size = New Size(238, 23)
+        txtFName.TabIndex = 2
         ' 
-        ' TextBox2
+        ' txtSName
         ' 
-        TextBox2.Location = New Point(228, 107)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(238, 23)
-        TextBox2.TabIndex = 3
+        txtSName.Location = New Point(228, 107)
+        txtSName.Name = "txtSName"
+        txtSName.Size = New Size(238, 23)
+        txtSName.TabIndex = 3
         ' 
-        ' TextBox3
+        ' txtID
         ' 
-        TextBox3.Location = New Point(228, 167)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(238, 23)
-        TextBox3.TabIndex = 4
+        txtID.Location = New Point(228, 167)
+        txtID.Name = "txtID"
+        txtID.Size = New Size(238, 23)
+        txtID.TabIndex = 4
         ' 
         ' Label2
         ' 
@@ -120,19 +121,30 @@ Partial Class Log_In
         lblNotMem.TabIndex = 9
         lblNotMem.Text = "Not a Member? Create an account here!"
         ' 
+        ' lblForgotID
+        ' 
+        lblForgotID.AutoSize = True
+        lblForgotID.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        lblForgotID.Location = New Point(387, 268)
+        lblForgotID.Name = "lblForgotID"
+        lblForgotID.Size = New Size(168, 15)
+        lblForgotID.TabIndex = 10
+        lblForgotID.Text = "Forgot Customer/Employee ID"
+        ' 
         ' Log_In
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(567, 292)
+        Controls.Add(lblForgotID)
         Controls.Add(lblNotMem)
         Controls.Add(Label4)
         Controls.Add(butBack)
         Controls.Add(Label3)
         Controls.Add(Label2)
-        Controls.Add(TextBox3)
-        Controls.Add(TextBox2)
-        Controls.Add(TextBox1)
+        Controls.Add(txtID)
+        Controls.Add(txtSName)
+        Controls.Add(txtFName)
         Controls.Add(butLogin)
         Controls.Add(Label1)
         Name = "Log_In"
@@ -143,12 +155,13 @@ Partial Class Log_In
 
     Friend WithEvents Label1 As Label
     Friend WithEvents butLogin As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtFName As TextBox
+    Friend WithEvents txtSName As TextBox
+    Friend WithEvents txtID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents butBack As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents lblNotMem As Label
+    Friend WithEvents lblForgotID As Label
 End Class
