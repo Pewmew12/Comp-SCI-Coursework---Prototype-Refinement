@@ -78,6 +78,8 @@
         Dim CustomerID As String
         Dim RNumber As Integer
 
+        'number generated tends to be the same number everytime for the first time (71)
+        'however if programme is not opened up again the number is different
         RNumber = Math.Ceiling(Rnd() * 100)
 
         'CustomerID made from first letter of FName, first letter of SName and first two letters of email and a random number 1-100
@@ -110,6 +112,8 @@
 
         MsgBox("Data Saved!" & vbCrLf & "You are now an Angel Slimes Member!")
         MsgBox("Reminder: Your CustomerID is " & CustomerID)
+
+        Close()
 
     End Sub
 End Class
