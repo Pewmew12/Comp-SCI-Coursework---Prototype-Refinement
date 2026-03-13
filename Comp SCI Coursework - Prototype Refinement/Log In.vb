@@ -25,6 +25,18 @@
         Dim CorrectFName As Boolean = False
         Dim CorrectSName As Boolean = False
 
+        'presence check for all text boxes
+        If txtFName.Text = "" Then
+            MsgBox("Please enter your First Name")
+            Exit Sub
+        ElseIf txtSName.Text = "" Then
+            MsgBox("Please enter your Surname")
+            Exit Sub
+        ElseIf txtID.Text = "" Then
+            MsgBox("Please enter your ID")
+            Exit Sub
+        End If
+
         'Searching function
         Dim file As System.IO.StreamReader
         Dim parts(0 To 5) As String
@@ -37,24 +49,30 @@
             parts = line.Split(",")
 
             If parts(0) = SearchID Then
-                MsgBox("customer id correct")
                 CorrectID = True
             End If
 
             If parts(1) = SearchFName Then
-                MsgBox("customer fname correct")
                 CorrectFName = True
             End If
 
             If parts(2) = SearchSName Then
-                MsgBox("customer sname correct")
                 CorrectSName = True
             End If
 
         Loop Until (file.EndOfStream)
 
-        If CorrectID = True And CorrectFName = True And CorrectSName = True Then
-            MsgBox("log in yaaaay")
+        Dim CorrectAll As Boolean = (CorrectID = True And CorrectFName = True And CorrectSName = True)
+
+        If CorrectAll = True Then
+            MsgBox("Log In Sucessful:" & vbCrLf & "Welcome to Angel Slimes!")
+            txtFName.Text = ""
+            txtSName.Text = ""
+            txtID.Text = ""
+            Customer_Menu.Show()
+            Me.Close()
+        ElseIf CorrectAll = False Then
+            MsgBox("Incorrect Name/Surname/ID" & vbCrLf & "Please try again", 48)
         End If
 
     End Sub
