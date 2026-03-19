@@ -88,9 +88,9 @@ Partial Class Log_In
         Label3.AutoSize = True
         Label3.Location = New Point(92, 170)
         Label3.Name = "Label3"
-        Label3.Size = New Size(130, 15)
+        Label3.Size = New Size(45, 15)
         Label3.TabIndex = 6
-        Label3.Text = "Customer/Employee ID"
+        Label3.Text = "Your ID"
         ' 
         ' butBack
         ' 
