@@ -37,7 +37,7 @@
             Exit Sub
         End If
 
-        'Searching function
+        'Searching function for customers
         Dim file As System.IO.StreamReader
         Dim parts(0 To 5) As String
         Dim line As String

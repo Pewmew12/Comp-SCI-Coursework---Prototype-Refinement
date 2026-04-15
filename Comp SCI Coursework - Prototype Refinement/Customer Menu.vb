@@ -93,6 +93,27 @@
 
     Private Sub butOrder_Click(sender As Object, e As EventArgs) Handles butOrder.Click
 
+        'declaring variables
+        Dim SlimeType As String = comSlimeType.Text
+        Dim SlimeAmount As String = comSlimeAmount.Text
+
+        Dim ActivatorAmount As String = comActivatorAmount.Text
+
+        'if no radio buttons are selected
+
+        'presence check for all boxes
+        If comSlimeType.Text = "" Then
+            MsgBox("Please enter a type of slime", 48)
+        End If
+
+        'checking if thing in combo box is one from the list
+        If comSlimeType.Text <> "Smiley Smile Slime" Or comSlimeType.Text <> "Rainbow Cloud Slime" Or comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
+            MsgBox("Please enter a valid Slime", 48)
+            Exit Sub
+        End If
+
+
+        'stuff for saving later
         If OnlySlime = True Then
             MsgBox("ordering slime")
         ElseIf OrderBoth = True Then
