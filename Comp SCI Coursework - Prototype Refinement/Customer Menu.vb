@@ -99,7 +99,7 @@
 
         Dim ActivatorAmount As String = comActivatorAmount.Text
 
-        'if no radio buttons are selected
+        'if no radio buttons are selected lalala
 
         'presence check for all boxes
         If comSlimeType.Text = "" Then
