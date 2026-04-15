@@ -115,6 +115,7 @@ Partial Class Log_In
         ' 
         lblNotMem.AutoSize = True
         lblNotMem.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        lblNotMem.ForeColor = SystemColors.Highlight
         lblNotMem.Location = New Point(12, 268)
         lblNotMem.Name = "lblNotMem"
         lblNotMem.Size = New Size(217, 15)
@@ -125,6 +126,7 @@ Partial Class Log_In
         ' 
         lblForgotID.AutoSize = True
         lblForgotID.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        lblForgotID.ForeColor = SystemColors.Highlight
         lblForgotID.Location = New Point(387, 268)
         lblForgotID.Name = "lblForgotID"
         lblForgotID.Size = New Size(168, 15)

@@ -23,56 +23,61 @@ Partial Class Customer_Menu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Customer_Menu))
-        Label1 = New Label()
+        lblSlimeType = New Label()
         butOrder = New Button()
-        TextBox1 = New TextBox()
-        ComboBox1 = New ComboBox()
+        txtCustomerID = New TextBox()
+        comSlimeType = New ComboBox()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         GroupBox1 = New GroupBox()
-        clbOrderWhat = New CheckedListBox()
+        rbOrderBoth = New RadioButton()
+        rbOnlyActivator = New RadioButton()
+        rbOnlySlime = New RadioButton()
+        lblDisclaimer = New Label()
         Label4 = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
-        ComboBox3 = New ComboBox()
-        ComboBox2 = New ComboBox()
+        lblActivatorAmount = New Label()
+        lblSlimeAmount = New Label()
+        comActivatorAmount = New ComboBox()
+        comSlimeAmount = New ComboBox()
+        butSearchOrder = New Button()
+        lblForgotID = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' Label1
+        ' lblSlimeType
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(94, 109)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(64, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "Slime Type"
+        lblSlimeType.AutoSize = True
+        lblSlimeType.Location = New Point(94, 76)
+        lblSlimeType.Name = "lblSlimeType"
+        lblSlimeType.Size = New Size(64, 15)
+        lblSlimeType.TabIndex = 0
+        lblSlimeType.Text = "Slime Type"
         ' 
         ' butOrder
         ' 
-        butOrder.Location = New Point(164, 252)
+        butOrder.Location = New Point(164, 219)
         butOrder.Name = "butOrder"
         butOrder.Size = New Size(121, 23)
         butOrder.TabIndex = 1
         butOrder.Text = "Place Order"
         butOrder.UseVisualStyleBackColor = True
         ' 
-        ' TextBox1
+        ' txtCustomerID
         ' 
-        TextBox1.Location = New Point(164, 212)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(242, 23)
-        TextBox1.TabIndex = 2
+        txtCustomerID.Location = New Point(164, 179)
+        txtCustomerID.Name = "txtCustomerID"
+        txtCustomerID.Size = New Size(242, 23)
+        txtCustomerID.TabIndex = 2
         ' 
-        ' ComboBox1
+        ' comSlimeType
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(164, 106)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(242, 23)
-        ComboBox1.TabIndex = 3
+        comSlimeType.FormattingEnabled = True
+        comSlimeType.Location = New Point(164, 73)
+        comSlimeType.Name = "comSlimeType"
+        comSlimeType.Size = New Size(242, 23)
+        comSlimeType.TabIndex = 3
         ' 
         ' PictureBox1
         ' 
@@ -94,80 +99,138 @@ Partial Class Customer_Menu
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(clbOrderWhat)
+        GroupBox1.Controls.Add(rbOrderBoth)
+        GroupBox1.Controls.Add(rbOnlyActivator)
+        GroupBox1.Controls.Add(rbOnlySlime)
+        GroupBox1.Controls.Add(lblDisclaimer)
         GroupBox1.Controls.Add(Label4)
-        GroupBox1.Controls.Add(Label3)
-        GroupBox1.Controls.Add(Label2)
-        GroupBox1.Controls.Add(ComboBox3)
-        GroupBox1.Controls.Add(ComboBox2)
-        GroupBox1.Controls.Add(ComboBox1)
-        GroupBox1.Controls.Add(Label1)
-        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(lblActivatorAmount)
+        GroupBox1.Controls.Add(lblSlimeAmount)
+        GroupBox1.Controls.Add(comActivatorAmount)
+        GroupBox1.Controls.Add(comSlimeAmount)
+        GroupBox1.Controls.Add(comSlimeType)
+        GroupBox1.Controls.Add(lblSlimeType)
+        GroupBox1.Controls.Add(txtCustomerID)
         GroupBox1.Controls.Add(butOrder)
         GroupBox1.Location = New Point(12, 87)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(457, 295)
+        GroupBox1.Size = New Size(457, 255)
         GroupBox1.TabIndex = 6
         GroupBox1.TabStop = False
         GroupBox1.Text = "Place An Order!"
         ' 
-        ' clbOrderWhat
+        ' rbOrderBoth
         ' 
-        clbOrderWhat.FormattingEnabled = True
-        clbOrderWhat.Items.AddRange(New Object() {"Order Only Slime", "Order Only Activator", "Order Both"})
-        clbOrderWhat.Location = New Point(16, 31)
-        clbOrderWhat.Name = "clbOrderWhat"
-        clbOrderWhat.Size = New Size(142, 58)
-        clbOrderWhat.TabIndex = 9
+        rbOrderBoth.AutoSize = True
+        rbOrderBoth.Location = New Point(323, 35)
+        rbOrderBoth.Name = "rbOrderBoth"
+        rbOrderBoth.Size = New Size(83, 19)
+        rbOrderBoth.TabIndex = 16
+        rbOrderBoth.TabStop = True
+        rbOrderBoth.Text = "Order Both"
+        rbOrderBoth.UseVisualStyleBackColor = True
+        ' 
+        ' rbOnlyActivator
+        ' 
+        rbOnlyActivator.AutoSize = True
+        rbOnlyActivator.Location = New Point(183, 35)
+        rbOnlyActivator.Name = "rbOnlyActivator"
+        rbOnlyActivator.Size = New Size(134, 19)
+        rbOnlyActivator.TabIndex = 15
+        rbOnlyActivator.TabStop = True
+        rbOnlyActivator.Text = "Order Only Activator"
+        rbOnlyActivator.UseVisualStyleBackColor = True
+        ' 
+        ' rbOnlySlime
+        ' 
+        rbOnlySlime.AutoSize = True
+        rbOnlySlime.Location = New Point(62, 35)
+        rbOnlySlime.Name = "rbOnlySlime"
+        rbOnlySlime.Size = New Size(115, 19)
+        rbOnlySlime.TabIndex = 14
+        rbOnlySlime.TabStop = True
+        rbOnlySlime.Text = "Order Only Slime"
+        rbOnlySlime.UseVisualStyleBackColor = True
+        ' 
+        ' lblDisclaimer
+        ' 
+        lblDisclaimer.AutoSize = True
+        lblDisclaimer.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold Or FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        lblDisclaimer.Location = New Point(37, 108)
+        lblDisclaimer.Name = "lblDisclaimer"
+        lblDisclaimer.Size = New Size(393, 17)
+        lblDisclaimer.TabIndex = 13
+        lblDisclaimer.Text = "Select what you would like to order at the top to see specifics!"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(58, 215)
+        Label4.Location = New Point(58, 182)
         Label4.Name = "Label4"
         Label4.Size = New Size(100, 15)
         Label4.TabIndex = 8
         Label4.Text = "Your Customer ID"
         ' 
-        ' Label3
+        ' lblActivatorAmount
         ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(56, 186)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(102, 15)
-        Label3.TabIndex = 7
-        Label3.Text = "Activator Amount"
+        lblActivatorAmount.AutoSize = True
+        lblActivatorAmount.Location = New Point(56, 153)
+        lblActivatorAmount.Name = "lblActivatorAmount"
+        lblActivatorAmount.Size = New Size(102, 15)
+        lblActivatorAmount.TabIndex = 7
+        lblActivatorAmount.Text = "Activator Amount"
         ' 
-        ' Label2
+        ' lblSlimeAmount
         ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(61, 138)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(97, 15)
-        Label2.TabIndex = 6
-        Label2.Text = "Amount of Slime"
+        lblSlimeAmount.AutoSize = True
+        lblSlimeAmount.Location = New Point(61, 105)
+        lblSlimeAmount.Name = "lblSlimeAmount"
+        lblSlimeAmount.Size = New Size(97, 15)
+        lblSlimeAmount.TabIndex = 6
+        lblSlimeAmount.Text = "Amount of Slime"
         ' 
-        ' ComboBox3
+        ' comActivatorAmount
         ' 
-        ComboBox3.FormattingEnabled = True
-        ComboBox3.Location = New Point(164, 183)
-        ComboBox3.Name = "ComboBox3"
-        ComboBox3.Size = New Size(242, 23)
-        ComboBox3.TabIndex = 5
+        comActivatorAmount.FormattingEnabled = True
+        comActivatorAmount.Location = New Point(164, 150)
+        comActivatorAmount.Name = "comActivatorAmount"
+        comActivatorAmount.Size = New Size(242, 23)
+        comActivatorAmount.TabIndex = 5
         ' 
-        ' ComboBox2
+        ' comSlimeAmount
         ' 
-        ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(164, 135)
-        ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(242, 23)
-        ComboBox2.TabIndex = 4
+        comSlimeAmount.FormattingEnabled = True
+        comSlimeAmount.Location = New Point(164, 102)
+        comSlimeAmount.Name = "comSlimeAmount"
+        comSlimeAmount.Size = New Size(242, 23)
+        comSlimeAmount.TabIndex = 4
+        ' 
+        ' butSearchOrder
+        ' 
+        butSearchOrder.Location = New Point(311, 348)
+        butSearchOrder.Name = "butSearchOrder"
+        butSearchOrder.Size = New Size(158, 34)
+        butSearchOrder.TabIndex = 7
+        butSearchOrder.Text = "Search Your Order"
+        butSearchOrder.UseVisualStyleBackColor = True
+        ' 
+        ' lblForgotID
+        ' 
+        lblForgotID.Font = New Font("Segoe UI", 8.25F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        lblForgotID.ForeColor = SystemColors.Highlight
+        lblForgotID.Location = New Point(12, 350)
+        lblForgotID.Name = "lblForgotID"
+        lblForgotID.Size = New Size(293, 34)
+        lblForgotID.TabIndex = 8
+        lblForgotID.Text = "Your Customer ID will automatically link your shipping details! (Click Here if you dont remember your ID!)"
         ' 
         ' Customer_Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 393)
+        Controls.Add(lblForgotID)
+        Controls.Add(butSearchOrder)
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
@@ -180,17 +243,22 @@ Partial Class Customer_Menu
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblSlimeType As Label
     Friend WithEvents butOrder As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents txtCustomerID As TextBox
+    Friend WithEvents comSlimeType As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents clbOrderWhat As CheckedListBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents lblActivatorAmount As Label
+    Friend WithEvents lblSlimeAmount As Label
+    Friend WithEvents comActivatorAmount As ComboBox
+    Friend WithEvents comSlimeAmount As ComboBox
+    Friend WithEvents butSearchOrder As Button
+    Friend WithEvents lblForgotID As Label
+    Friend WithEvents lblDisclaimer As Label
+    Friend WithEvents rbOnlySlime As RadioButton
+    Friend WithEvents rbOrderBoth As RadioButton
+    Friend WithEvents rbOnlyActivator As RadioButton
 End Class
