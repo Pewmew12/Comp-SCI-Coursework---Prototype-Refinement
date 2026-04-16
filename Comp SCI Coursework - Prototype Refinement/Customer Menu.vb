@@ -108,6 +108,12 @@ Public Class Customer_Menu
 
         Dim ActivatorAmount As String = comActivatorAmount.Text
 
+        Dim SearchID As String = txtCustomerID.Text
+        Dim CorrectID As Boolean = False
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 5) As String
+        Dim line As String
+
         'if no radio buttons are selected
         If OnlySlime = False And OnlyActivator = False And OrderBoth = False Then
             MsgBox("Please select what you would like to order", 48)
@@ -123,11 +129,20 @@ Public Class Customer_Menu
             Exit Sub
         End If
 
-        'checking if thing in combo box is one from the list - hard coded for now
-        If comSlimeType.Visible = True And comSlimeType.Text <> "Smiley Smile Slime" And comSlimeType.Text <> "Rainbow Cloud Slime" And comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
-            MsgBox("Please select a valid slime", 48)
-            Exit Sub
-        End If
+        'combo box checking
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
+
+        Do
+            line = file.ReadLine()
+
+            'searches through fine but gives error each time it loops through on a different slime than the one selected
+            For index As Integer = 1 To 1
+                If comSlimeType.Visible = True And comSlimeType.Text <> line Then
+                    MsgBox("Please select a valid slime", 48)
+                End If
+            Next
+
+        Loop Until (file.EndOfStream)
 
         'change to match portential changing number based combo box (public variable)
         If comSlimeAmount.Visible = True And comSlimeAmount.Text <> "1" And comSlimeAmount.Text <> "2" And comSlimeAmount.Text <> "3" And comSlimeAmount.Text <> "4" And comSlimeAmount.Text <> "5" Then
@@ -151,19 +166,14 @@ Public Class Customer_Menu
             Exit Sub
         End If
 
-        'searching for correct ID
-        Dim SearchID As String = txtCustomerID.Text
-        Dim CorrectID As Boolean = False
-        Dim file As System.IO.StreamReader
-        Dim parts(0 To 5) As String
-        Dim line As String
-
+        'declaring variables for types of order (only slime, only activator, both)
         Dim OrderSlime As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = False
 
         Dim OrderActivator As String = comActivatorAmount.Visible = True And comSlimeType.Visible = False And comSlimeAmount.Visible = False
 
         Dim Both As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = True
 
+        'searching for correct ID
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
 
         Do
@@ -176,26 +186,27 @@ Public Class Customer_Menu
 
         Loop Until (file.EndOfStream)
 
-        'saving order if ID is correct
+        'saving order if ID is correct - add order id?
         Dim CustomerOrder As System.IO.StreamWriter
+        Dim OrderID As Integer = 1
 
         If CorrectID = True Then
             If OrderSlime = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
-                CustomerOrder.WriteLine(SearchID & "," & SlimeType & "," & SlimeAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount)
                 CustomerOrder.Close()
 
             ElseIf OrderActivator = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
-                CustomerOrder.WriteLine(SearchID & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             ElseIf Both = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
-                CustomerOrder.WriteLine(SearchID & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             End If
