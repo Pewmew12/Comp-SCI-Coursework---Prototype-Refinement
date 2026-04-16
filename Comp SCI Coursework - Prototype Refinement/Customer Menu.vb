@@ -7,22 +7,29 @@
 
     Private Sub Customer_Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'entering slime names and amount from text document - hard coded for now
-        comSlimeType.Items.Add("Smiley Smile Slime")
-        comSlimeType.Items.Add("Rainbow Cloud Slime")
-        comSlimeType.Items.Add("The Girl From K-Pop Demon Hunters Slime")
+        'text file implementation
+        Dim file As System.IO.StreamReader
+        Dim line As String
 
-        comSlimeAmount.Items.Add("1")
-        comSlimeAmount.Items.Add("2")
-        comSlimeAmount.Items.Add("3")
-        comSlimeAmount.Items.Add("4")
-        comSlimeAmount.Items.Add("5")
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
 
-        comActivatorAmount.Items.Add("1")
-        comActivatorAmount.Items.Add("2")
-        comActivatorAmount.Items.Add("3")
-        comActivatorAmount.Items.Add("4")
-        comActivatorAmount.Items.Add("5")
+        Do
+            line = file.ReadLine()
+
+            For index As Integer = 1 To 1
+                comSlimeType.Items.Add(line)
+            Next
+
+        Loop Until (file.EndOfStream)
+
+        'hard coded but now simplified number combo boxes - temporary (use public variable)
+        For index As Integer = 1 To 5
+            comSlimeAmount.Items.Add(index)
+        Next
+
+        For index As Integer = 1 To 5
+            comActivatorAmount.Items.Add(index)
+        Next
 
         comSlimeType.Visible = False
         comSlimeAmount.Visible = False
@@ -99,33 +106,90 @@
 
         Dim ActivatorAmount As String = comActivatorAmount.Text
 
-        'if no radio buttons are selected lalala
+        'if no radio buttons are selected
+        If OnlySlime = False And OnlyActivator = False And OrderBoth = False Then
+            MsgBox("Please select what you would like to order", 48)
+            Exit Sub
+        End If
 
         'presence check for all boxes
-        If comSlimeType.Text = "" Then
+        If comSlimeType.Visible = True And comSlimeType.Text = "" Then
             MsgBox("Please enter a type of slime", 48)
-        End If
-
-        'checking if thing in combo box is one from the list
-        If comSlimeType.Text <> "Smiley Smile Slime" Or comSlimeType.Text <> "Rainbow Cloud Slime" Or comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
-            MsgBox("Please enter a valid Slime", 48)
+            Exit Sub
+        ElseIf comSlimeAmount.Visible = True And comSlimeAmount.Text = "" Then
+            MsgBox("Please enter an amount of slime", 48)
             Exit Sub
         End If
 
+        'checking if thing in combo box is one from the list - hard coded for now
+        If comSlimeType.Text <> "Smiley Smile Slime" And comSlimeType.Text <> "Rainbow Cloud Slime" And comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
+            MsgBox("Please select a valid slime", 48)
+            Exit Sub
+        End If
+
+        'change to match portential changing number based combo box (public variable)
+        If comSlimeAmount.Visible = True And comSlimeAmount.Text <> "1" And comSlimeAmount.Text <> "2" And comSlimeAmount.Text <> "3" And comSlimeAmount.Text <> "4" And comSlimeAmount.Text <> "5" Then
+            MsgBox("Please select a valid amount of slime", 48)
+            Exit Sub
+        End If
+
+        If comActivatorAmount.Visible = True And comActivatorAmount.Text = "" Then
+            MsgBox("Please enter an amount of activator", 48)
+            Exit Sub
+        End If
+
+        'change to match portential changing number based combo box (public variable)
+        If comActivatorAmount.Visible = True And comActivatorAmount.Text <> "1" And comActivatorAmount.Text <> "2" And comActivatorAmount.Text <> "3" And comActivatorAmount.Text <> "4" And comActivatorAmount.Text <> "5" Then
+            MsgBox("Please select a valid amount of activator", 48)
+            Exit Sub
+        End If
+
+        If txtCustomerID.Text = "" Then
+            MsgBox("Please enter your CustomerID", 48)
+            Exit Sub
+        End If
 
         'stuff for saving later
-        If OnlySlime = True Then
-            MsgBox("ordering slime")
-        ElseIf OrderBoth = True Then
-            MsgBox("ordering both")
-            Exit Sub
-        End If
+        'If OnlySlime = True Then
+        'MsgBox("ordering slime")
+        'ElseIf OrderBoth = True Then
+        'MsgBox("ordering both")
+        'Exit Sub
+        'End If
 
-        If OnlyActivator = True Then
-            MsgBox("ordering activator")
-        ElseIf OrderBoth = True Then
-            MsgBox("ordering both")
-            Exit Sub
+        'If OnlyActivator = True Then
+        'MsgBox("ordering activator")
+        'ElseIf OrderBoth = True Then
+        'MsgBox("ordering both")
+        'Exit Sub
+        'End If
+
+        'searching for correct ID
+        Dim SearchID As String = txtCustomerID.Text
+        Dim CorrectID As Boolean = False
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 5) As String
+        Dim line As String
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(0) = SearchID Then
+                CorrectID = True
+            End If
+
+        Loop Until (file.EndOfStream)
+
+        If CorrectID = True Then
+            If comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = False Then
+                MsgBox("order slime")
+            End If
+            MsgBox("Order Placed:" & vbCrLf & "Thank you for purchasing!")
+            ElseIf CorrectID = False Then
+                MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
         End If
 
     End Sub
