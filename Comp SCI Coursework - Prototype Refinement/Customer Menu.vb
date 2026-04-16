@@ -1,4 +1,6 @@
-﻿Public Class Customer_Menu
+﻿Imports System.Windows.Forms.AxHost
+
+Public Class Customer_Menu
 
     Dim OnlySlime As Boolean = False
     Dim OnlyActivator As Boolean = False
@@ -122,7 +124,7 @@
         End If
 
         'checking if thing in combo box is one from the list - hard coded for now
-        If comSlimeType.Text <> "Smiley Smile Slime" And comSlimeType.Text <> "Rainbow Cloud Slime" And comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
+        If comSlimeType.Visible = True And comSlimeType.Text <> "Smiley Smile Slime" And comSlimeType.Text <> "Rainbow Cloud Slime" And comSlimeType.Text <> "The Girl From K-Pop Demon Hunters Slime" Then
             MsgBox("Please select a valid slime", 48)
             Exit Sub
         End If
@@ -149,27 +151,18 @@
             Exit Sub
         End If
 
-        'stuff for saving later
-        'If OnlySlime = True Then
-        'MsgBox("ordering slime")
-        'ElseIf OrderBoth = True Then
-        'MsgBox("ordering both")
-        'Exit Sub
-        'End If
-
-        'If OnlyActivator = True Then
-        'MsgBox("ordering activator")
-        'ElseIf OrderBoth = True Then
-        'MsgBox("ordering both")
-        'Exit Sub
-        'End If
-
         'searching for correct ID
         Dim SearchID As String = txtCustomerID.Text
         Dim CorrectID As Boolean = False
         Dim file As System.IO.StreamReader
         Dim parts(0 To 5) As String
         Dim line As String
+
+        Dim OrderSlime As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = False
+
+        Dim OrderActivator As String = comActivatorAmount.Visible = True And comSlimeType.Visible = False And comSlimeAmount.Visible = False
+
+        Dim Both As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = True
 
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
 
@@ -183,13 +176,32 @@
 
         Loop Until (file.EndOfStream)
 
+        'saving order if ID is correct
+        Dim CustomerOrder As System.IO.StreamWriter
+
         If CorrectID = True Then
-            If comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = False Then
-                MsgBox("order slime")
+            If OrderSlime = True Then
+
+                CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+                CustomerOrder.WriteLine(SearchID & "," & SlimeType & "," & SlimeAmount)
+                CustomerOrder.Close()
+
+            ElseIf OrderActivator = True Then
+
+                CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+                CustomerOrder.WriteLine(SearchID & "," & ActivatorAmount)
+                CustomerOrder.Close()
+
+            ElseIf Both = True Then
+
+                CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+                CustomerOrder.WriteLine(SearchID & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
+                CustomerOrder.Close()
+
             End If
             MsgBox("Order Placed:" & vbCrLf & "Thank you for purchasing!")
-            ElseIf CorrectID = False Then
-                MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
+        ElseIf CorrectID = False Then
+            MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
         End If
 
     End Sub
