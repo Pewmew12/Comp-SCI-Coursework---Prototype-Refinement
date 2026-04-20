@@ -9,17 +9,19 @@ Public Class Customer_Menu
 
     Private Sub Customer_Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'text file implementation
+        'text file implementation - adds name of slimes
         Dim file As System.IO.StreamReader
         Dim line As String
+        Dim parts(0 To 1) As String
 
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
 
         Do
             line = file.ReadLine()
+            parts = line.Split(",")
 
             For index As Integer = 1 To 1
-                comSlimeType.Items.Add(line)
+                comSlimeType.Items.Add(parts(0))
             Next
 
         Loop Until (file.EndOfStream)
@@ -131,18 +133,22 @@ Public Class Customer_Menu
 
         'combo box checking
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
+        Dim found As Boolean = False
+        line = file.ReadLine()
+        Dim slimepart(0 To 1) As String
+        slimepart = line.Split(",")
 
         Do
-            line = file.ReadLine()
-
-            'searches through fine but gives error each time it loops through on a different slime than the one selected
-            For index As Integer = 1 To 1
-                If comSlimeType.Visible = True And comSlimeType.Text <> line Then
-                    MsgBox("Please select a valid slime", 48)
-                End If
-            Next
+            If comSlimeType.Text = slimepart(0) Then
+                found = True
+            End If
 
         Loop Until (file.EndOfStream)
+
+        If comSlimeType.Visible = True And found = False Then
+            MsgBox("Please select a valid slime", 48)
+            Exit Sub
+        End If
 
         'change to match portential changing number based combo box (public variable)
         If comSlimeAmount.Visible = True And comSlimeAmount.Text <> "1" And comSlimeAmount.Text <> "2" And comSlimeAmount.Text <> "3" And comSlimeAmount.Text <> "4" And comSlimeAmount.Text <> "5" Then
@@ -194,18 +200,36 @@ Public Class Customer_Menu
             If OrderSlime = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+
+                Do
+                    line = file.ReadLine()
+                    OrderID = OrderID + 1
+                Loop Until (file.EndOfStream)
+
                 CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount)
                 CustomerOrder.Close()
 
             ElseIf OrderActivator = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+
+                Do
+                    line = file.ReadLine()
+                    OrderID = OrderID + 1
+                Loop Until (file.EndOfStream)
+
                 CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             ElseIf Both = True Then
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
+
+                Do
+                    line = file.ReadLine()
+                    OrderID = OrderID + 1
+                Loop Until (file.EndOfStream)
+
                 CustomerOrder.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
                 CustomerOrder.Close()
 

@@ -127,11 +127,11 @@ Partial Class Log_In
         lblForgotID.AutoSize = True
         lblForgotID.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         lblForgotID.ForeColor = SystemColors.Highlight
-        lblForgotID.Location = New Point(387, 268)
+        lblForgotID.Location = New Point(479, 268)
         lblForgotID.Name = "lblForgotID"
-        lblForgotID.Size = New Size(168, 15)
+        lblForgotID.Size = New Size(76, 15)
         lblForgotID.TabIndex = 10
-        lblForgotID.Text = "Forgot Customer/Employee ID"
+        lblForgotID.Text = "Forgot my ID"
         ' 
         ' Log_In
         ' 
