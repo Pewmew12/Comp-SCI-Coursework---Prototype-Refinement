@@ -58,7 +58,7 @@ Partial Class Customer_Menu
         ' 
         ' butOrder
         ' 
-        butOrder.Location = New Point(686, 376)
+        butOrder.Location = New Point(680, 361)
         butOrder.Name = "butOrder"
         butOrder.Size = New Size(121, 23)
         butOrder.TabIndex = 1
@@ -122,7 +122,7 @@ Partial Class Customer_Menu
         ' 
         ' butorderorwhatdgfdf
         ' 
-        butorderorwhatdgfdf.Location = New Point(124, 226)
+        butorderorwhatdgfdf.Location = New Point(125, 217)
         butorderorwhatdgfdf.Name = "butorderorwhatdgfdf"
         butorderorwhatdgfdf.Size = New Size(214, 23)
         butorderorwhatdgfdf.TabIndex = 17
