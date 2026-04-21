@@ -180,11 +180,8 @@ Public Class Customer_Menu
         Dim Both As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = True
 
         'searching for correct ID
-        file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
 
-        'dffgd
-
-        file.Close()
+        'dffgdbitch
 
         'saving order if ID is correct - add order id?
         Dim CustomerOrder As System.IO.StreamWriter

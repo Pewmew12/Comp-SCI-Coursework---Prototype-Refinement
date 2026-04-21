@@ -33,6 +33,9 @@ Partial Class Log_In
         Label4 = New Label()
         lblNotMem = New Label()
         lblForgotID = New Label()
+        Label5 = New Label()
+        Label6 = New Label()
+        Label7 = New Label()
         SuspendLayout()
         ' 
         ' Label1
@@ -133,11 +136,41 @@ Partial Class Log_In
         lblForgotID.TabIndex = 10
         lblForgotID.Text = "Forgot my ID"
         ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(472, 81)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(32, 15)
+        Label5.TabIndex = 11
+        Label5.Text = "John"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(472, 110)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(55, 15)
+        Label6.TabIndex = 12
+        Label6.Text = "Examiner"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(472, 170)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(40, 15)
+        Label7.TabIndex = 13
+        Label7.Text = "Jeex71"
+        ' 
         ' Log_In
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(567, 292)
+        Controls.Add(Label7)
+        Controls.Add(Label6)
+        Controls.Add(Label5)
         Controls.Add(lblForgotID)
         Controls.Add(lblNotMem)
         Controls.Add(Label4)
@@ -166,4 +199,7 @@ Partial Class Log_In
     Friend WithEvents Label4 As Label
     Friend WithEvents lblNotMem As Label
     Friend WithEvents lblForgotID As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
 End Class

@@ -58,7 +58,7 @@ Partial Class Customer_Menu
         ' 
         ' butOrder
         ' 
-        butOrder.Location = New Point(37, 226)
+        butOrder.Location = New Point(686, 376)
         butOrder.Name = "butOrder"
         butOrder.Size = New Size(121, 23)
         butOrder.TabIndex = 1
@@ -105,7 +105,6 @@ Partial Class Customer_Menu
         GroupBox1.Controls.Add(rbOnlyActivator)
         GroupBox1.Controls.Add(rbOnlySlime)
         GroupBox1.Controls.Add(lblDisclaimer)
-        GroupBox1.Controls.Add(butOrder)
         GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(lblActivatorAmount)
         GroupBox1.Controls.Add(lblSlimeAmount)
@@ -123,11 +122,11 @@ Partial Class Customer_Menu
         ' 
         ' butorderorwhatdgfdf
         ' 
-        butorderorwhatdgfdf.Location = New Point(216, 226)
+        butorderorwhatdgfdf.Location = New Point(124, 226)
         butorderorwhatdgfdf.Name = "butorderorwhatdgfdf"
         butorderorwhatdgfdf.Size = New Size(214, 23)
         butorderorwhatdgfdf.TabIndex = 17
-        butorderorwhatdgfdf.Text = "Place Order vfcvcxv"
+        butorderorwhatdgfdf.Text = "Place Order"
         butorderorwhatdgfdf.UseVisualStyleBackColor = True
         ' 
         ' rbOrderBoth
@@ -245,6 +244,7 @@ Partial Class Customer_Menu
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
+        Controls.Add(butOrder)
         Name = "Customer_Menu"
         Text = "Customer_Menu"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
