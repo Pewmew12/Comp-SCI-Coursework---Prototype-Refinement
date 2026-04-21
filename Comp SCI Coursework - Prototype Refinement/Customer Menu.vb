@@ -180,17 +180,11 @@ Public Class Customer_Menu
         Dim Both As String = comSlimeType.Visible = True And comSlimeAmount.Visible = True And comActivatorAmount.Visible = True
 
         'searching for correct ID
-        file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
 
-        Do
-            line = file.ReadLine()
-            parts = line.Split(",")
+        'dffgd
 
-            If parts(0) = SearchID Then
-                CorrectID = True
-            End If
-
-        Loop Until (file.EndOfStream)
+        file.Close()
 
         'saving order if ID is correct - add order id?
         Dim CustomerOrder As System.IO.StreamWriter
@@ -238,6 +232,136 @@ Public Class Customer_Menu
         ElseIf CorrectID = False Then
             MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
         End If
+
+    End Sub
+
+    Private Sub butorderorwhatdgfdf_Click(sender As Object, e As EventArgs) Handles butorderorwhatdgfdf.Click
+
+        ' Declare variables
+        Dim SlimeType As String = comSlimeType.Text
+        Dim SlimeAmount As String = comSlimeAmount.Text
+        Dim ActivatorAmount As String = comActivatorAmount.Text
+        Dim SearchID As String = txtCustomerID.Text
+
+        Dim CorrectID As Boolean = False
+
+        ' Check radio selection
+        If Not OnlySlime And Not OnlyActivator And Not OrderBoth Then
+            MsgBox("Please select what you would like to order", 48)
+            Exit Sub
+        End If
+
+        ' Presence checks
+        If comSlimeType.Visible And SlimeType = "" Then
+            MsgBox("Please enter a type of slime", 48)
+            Exit Sub
+        End If
+
+        If comSlimeAmount.Visible And SlimeAmount = "" Then
+            MsgBox("Please enter an amount of slime", 48)
+            Exit Sub
+        End If
+
+        If comActivatorAmount.Visible And ActivatorAmount = "" Then
+            MsgBox("Please enter an amount of activator", 48)
+            Exit Sub
+        End If
+
+        If SearchID = "" Then
+            MsgBox("Please enter your CustomerID", 48)
+            Exit Sub
+        End If
+
+        ' Validate slime type
+        If comSlimeType.Visible Then
+            Dim found As Boolean = False
+            Dim file As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader("Slimes.txt")
+
+            Do Until file.EndOfStream
+                Dim line As String = file.ReadLine()
+                Dim parts() As String = line.Split(",")
+
+                If SlimeType = parts(0) Then
+                    found = True
+                    Exit Do
+                End If
+            Loop
+
+            file.Close()
+
+            If Not found Then
+                MsgBox("Please select a valid slime", 48)
+                Exit Sub
+            End If
+        End If
+
+        ' Validate amounts (simplified)
+        If comSlimeAmount.Visible AndAlso Not {"1", "2", "3", "4", "5"}.Contains(SlimeAmount) Then
+            MsgBox("Please select a valid amount of slime", 48)
+            Exit Sub
+        End If
+
+        If comActivatorAmount.Visible AndAlso Not {"1", "2", "3", "4", "5"}.Contains(ActivatorAmount) Then
+            MsgBox("Please select a valid amount of activator", 48)
+            Exit Sub
+        End If
+
+        ' Check Customer ID
+        Dim reader As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader("CustomerInfo.txt")
+
+        Do Until reader.EndOfStream
+            Dim line As String = reader.ReadLine()
+            Dim parts() As String = line.Split(",")
+
+            If parts(0) = SearchID Then
+                CorrectID = True
+                Exit Do
+            End If
+        Loop
+
+        reader.Close()
+
+        If Not CorrectID Then
+            MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
+            Exit Sub
+        End If
+
+        ' Determine order type
+        Dim OrderSlime As Boolean = comSlimeType.Visible And comSlimeAmount.Visible And Not comActivatorAmount.Visible
+        Dim OrderActivator As Boolean = comActivatorAmount.Visible And Not comSlimeType.Visible And Not comSlimeAmount.Visible
+        Dim Both As Boolean = comSlimeType.Visible And comSlimeAmount.Visible And comActivatorAmount.Visible
+
+        ' Generate OrderID
+        Dim OrderID As Integer = 1
+        Dim orderReader As System.IO.StreamReader
+
+        If System.IO.File.Exists("CustomerOrders.txt") Then
+            orderReader = My.Computer.FileSystem.OpenTextFileReader("CustomerOrders.txt")
+
+            Do Until orderReader.EndOfStream
+                orderReader.ReadLine()
+                OrderID += 1
+            Loop
+
+            orderReader.Close()
+        End If
+
+        ' Write order
+        Dim writer As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter("CustomerOrders.txt", True)
+
+        If OrderSlime Then
+            writer.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount)
+
+        ElseIf OrderActivator Then
+            writer.WriteLine(SearchID & "," & OrderID & "," & ActivatorAmount)
+
+        ElseIf Both Then
+            writer.WriteLine(SearchID & "," & OrderID & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
+        End If
+
+        writer.Close()
+
+        MsgBox("Order Placed:" & vbCrLf & "Thank you for purchasing!")
 
     End Sub
 End Class
