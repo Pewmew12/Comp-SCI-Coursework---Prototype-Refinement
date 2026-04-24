@@ -30,7 +30,6 @@ Partial Class Customer_Menu
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         GroupBox1 = New GroupBox()
-        butorderorwhatdgfdf = New Button()
         rbOrderBoth = New RadioButton()
         rbOnlyActivator = New RadioButton()
         rbOnlySlime = New RadioButton()
@@ -58,9 +57,9 @@ Partial Class Customer_Menu
         ' 
         ' butOrder
         ' 
-        butOrder.Location = New Point(680, 361)
+        butOrder.Location = New Point(164, 217)
         butOrder.Name = "butOrder"
-        butOrder.Size = New Size(121, 23)
+        butOrder.Size = New Size(129, 23)
         butOrder.TabIndex = 1
         butOrder.Text = "Place Order"
         butOrder.UseVisualStyleBackColor = True
@@ -92,7 +91,7 @@ Partial Class Customer_Menu
         ' PictureBox2
         ' 
         PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(475, 11)
+        PictureBox2.Location = New Point(475, 14)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(315, 370)
         PictureBox2.TabIndex = 5
@@ -100,11 +99,11 @@ Partial Class Customer_Menu
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(butorderorwhatdgfdf)
         GroupBox1.Controls.Add(rbOrderBoth)
         GroupBox1.Controls.Add(rbOnlyActivator)
         GroupBox1.Controls.Add(rbOnlySlime)
         GroupBox1.Controls.Add(lblDisclaimer)
+        GroupBox1.Controls.Add(butOrder)
         GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(lblActivatorAmount)
         GroupBox1.Controls.Add(lblSlimeAmount)
@@ -119,15 +118,6 @@ Partial Class Customer_Menu
         GroupBox1.TabIndex = 6
         GroupBox1.TabStop = False
         GroupBox1.Text = "Place An Order!"
-        ' 
-        ' butorderorwhatdgfdf
-        ' 
-        butorderorwhatdgfdf.Location = New Point(125, 217)
-        butorderorwhatdgfdf.Name = "butorderorwhatdgfdf"
-        butorderorwhatdgfdf.Size = New Size(214, 23)
-        butorderorwhatdgfdf.TabIndex = 17
-        butorderorwhatdgfdf.Text = "Place Order"
-        butorderorwhatdgfdf.UseVisualStyleBackColor = True
         ' 
         ' rbOrderBoth
         ' 
@@ -244,7 +234,6 @@ Partial Class Customer_Menu
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
-        Controls.Add(butOrder)
         Name = "Customer_Menu"
         Text = "Customer_Menu"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
@@ -272,5 +261,4 @@ Partial Class Customer_Menu
     Friend WithEvents rbOnlySlime As RadioButton
     Friend WithEvents rbOrderBoth As RadioButton
     Friend WithEvents rbOnlyActivator As RadioButton
-    Friend WithEvents butorderorwhatdgfdf As Button
 End Class
