@@ -30,6 +30,7 @@ Partial Class Customer_Menu
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         GroupBox1 = New GroupBox()
+        Label1 = New Label()
         rbOrderBoth = New RadioButton()
         rbOnlyActivator = New RadioButton()
         rbOnlySlime = New RadioButton()
@@ -41,7 +42,6 @@ Partial Class Customer_Menu
         comSlimeAmount = New ComboBox()
         butSearchOrder = New Button()
         lblForgotID = New Label()
-        Label1 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -92,7 +92,7 @@ Partial Class Customer_Menu
         ' PictureBox2
         ' 
         PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(475, 14)
+        PictureBox2.Location = New Point(475, 12)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(315, 370)
         PictureBox2.TabIndex = 5
@@ -120,6 +120,16 @@ Partial Class Customer_Menu
         GroupBox1.TabIndex = 6
         GroupBox1.TabStop = False
         GroupBox1.Text = "Place An Order!"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(403, 182)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(40, 15)
+        Label1.TabIndex = 9
+        Label1.Text = "Jeex71"
         ' 
         ' rbOrderBoth
         ' 
@@ -225,16 +235,6 @@ Partial Class Customer_Menu
         lblForgotID.Size = New Size(293, 34)
         lblForgotID.TabIndex = 8
         lblForgotID.Text = "Your Customer ID will automatically link your shipping details! (Click Here if you dont remember your ID!)"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(403, 182)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(40, 15)
-        Label1.TabIndex = 9
-        Label1.Text = "Jeex71"
         ' 
         ' Customer_Menu
         ' 

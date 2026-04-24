@@ -307,6 +307,11 @@ Public Class Customer_Menu
 
         Loop Until (file.EndOfStream)
 
+        If correctInput = False Then
+            MsgBox("CustomerID incorrect or No Orders Found", 48)
+            Exit Sub
+        End If
+
         MsgBox(FullMessage)
 
     End Sub
