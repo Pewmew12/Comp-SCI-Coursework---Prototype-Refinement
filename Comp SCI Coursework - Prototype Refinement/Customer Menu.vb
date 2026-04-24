@@ -222,12 +222,30 @@ Public Class Customer_Menu
 
             ElseIf OrderActivator = True Then
 
+                readCustomerOrder = My.Computer.FileSystem.OpenTextFileReader(Dir$("CustomerOrders.txt"))
+
+                Do
+                    line = readCustomerOrder.ReadLine()
+                    OrderNumber = OrderNumber + 1
+                Loop Until (readCustomerOrder.EndOfStream)
+
+                readCustomerOrder.Close()
+
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
                 CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             ElseIf Both = True Then
+
+                readCustomerOrder = My.Computer.FileSystem.OpenTextFileReader(Dir$("CustomerOrders.txt"))
+
+                Do
+                    line = readCustomerOrder.ReadLine()
+                    OrderNumber = OrderNumber + 1
+                Loop Until (readCustomerOrder.EndOfStream)
+
+                readCustomerOrder.Close()
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
