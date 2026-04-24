@@ -139,15 +139,17 @@ Partial Class Log_In
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label5.Location = New Point(472, 81)
         Label5.Name = "Label5"
-        Label5.Size = New Size(32, 15)
+        Label5.Size = New Size(31, 15)
         Label5.TabIndex = 11
         Label5.Text = "John"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label6.Location = New Point(472, 110)
         Label6.Name = "Label6"
         Label6.Size = New Size(55, 15)
@@ -157,6 +159,7 @@ Partial Class Log_In
         ' Label7
         ' 
         Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label7.Location = New Point(472, 170)
         Label7.Name = "Label7"
         Label7.Size = New Size(40, 15)

@@ -26,7 +26,7 @@ Public Class Customer_Menu
 
         Loop Until (file.EndOfStream)
 
-        'hard coded but now simplified number combo boxes - temporary (use public variable)
+        'hard coded but now simplified number combo boxes - temporary (use public variable or file)
         For index As Integer = 1 To 5
             comSlimeAmount.Items.Add(index)
         Next
@@ -203,11 +203,16 @@ Public Class Customer_Menu
         Dim OrderNumber As Integer = 1
         Dim readCustomerOrder As System.IO.StreamReader
 
-        If CorrectID = True Then
-            If OrderSlime = True Then
+        'maybe when ordering show shipping details to check if person ordering ships to correct place - safety issue? only person should know the id but if someone guesses or knows then they can see their shipping details.
+        'or just add shipping details in when saving? - customer id already links it
 
+        If CorrectID = True Then
+            'if all checks are met and id is correct it saves depending on what the customer selected (visible)
+            If OrderSlime = True Then
+                'if customer selected only slime
                 readCustomerOrder = My.Computer.FileSystem.OpenTextFileReader(Dir$("CustomerOrders.txt"))
 
+                'makes incremented number for order numbers
                 Do
                     line = readCustomerOrder.ReadLine()
                     OrderNumber = OrderNumber + 1
@@ -215,13 +220,14 @@ Public Class Customer_Menu
 
                 readCustomerOrder.Close()
 
+                'saving order based off what was selected (visible)
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & SlimeType & "," & SlimeAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & SlimeType & "," & SlimeAmount)
                 CustomerOrder.Close()
 
             ElseIf OrderActivator = True Then
-
+                'if customer selected only activator
                 readCustomerOrder = My.Computer.FileSystem.OpenTextFileReader(Dir$("CustomerOrders.txt"))
 
                 Do
@@ -233,11 +239,11 @@ Public Class Customer_Menu
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             ElseIf Both = True Then
-
+                'if customer selected both
                 readCustomerOrder = My.Computer.FileSystem.OpenTextFileReader(Dir$("CustomerOrders.txt"))
 
                 Do
@@ -249,11 +255,18 @@ Public Class Customer_Menu
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             End If
             MsgBox("Order Placed:" & vbCrLf & "Thank you for purchasing!")
+
+            'clearing all boxes
+            comSlimeType.Text = ""
+            comSlimeAmount.Text = ""
+            comActivatorAmount.Text = ""
+            txtCustomerID.Text = ""
+
         ElseIf CorrectID = False Then
             MsgBox("Invalid ID" & vbCrLf & "Please try again", 48)
         End If
@@ -264,6 +277,37 @@ Public Class Customer_Menu
 
         'temporary code for now
         MsgBox("lol sucks to suck")
+
+    End Sub
+
+    Private Sub butSearchOrder_Click(sender As Object, e As EventArgs) Handles butSearchOrder.Click
+
+        Dim input As String
+        Dim correctInput As Boolean = False
+        Dim FullMessage As String
+
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 1) As String
+        Dim line As String
+
+        input = InputBox("To search for your order you must input your CustomerID:")
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerOrders.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(0) = input Then
+                correctInput = True
+
+                FullMessage = FullMessage + line + vbCrLf
+
+            End If
+
+        Loop Until (file.EndOfStream)
+
+        MsgBox(FullMessage)
 
     End Sub
 End Class

@@ -41,6 +41,7 @@ Partial Class Customer_Menu
         comSlimeAmount = New ComboBox()
         butSearchOrder = New Button()
         lblForgotID = New Label()
+        Label1 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -49,7 +50,7 @@ Partial Class Customer_Menu
         ' lblSlimeType
         ' 
         lblSlimeType.AutoSize = True
-        lblSlimeType.Location = New Point(94, 76)
+        lblSlimeType.Location = New Point(85, 76)
         lblSlimeType.Name = "lblSlimeType"
         lblSlimeType.Size = New Size(64, 15)
         lblSlimeType.TabIndex = 0
@@ -66,7 +67,7 @@ Partial Class Customer_Menu
         ' 
         ' txtCustomerID
         ' 
-        txtCustomerID.Location = New Point(164, 179)
+        txtCustomerID.Location = New Point(155, 179)
         txtCustomerID.Name = "txtCustomerID"
         txtCustomerID.Size = New Size(242, 23)
         txtCustomerID.TabIndex = 2
@@ -74,7 +75,7 @@ Partial Class Customer_Menu
         ' comSlimeType
         ' 
         comSlimeType.FormattingEnabled = True
-        comSlimeType.Location = New Point(164, 73)
+        comSlimeType.Location = New Point(155, 73)
         comSlimeType.Name = "comSlimeType"
         comSlimeType.Size = New Size(242, 23)
         comSlimeType.TabIndex = 3
@@ -99,6 +100,7 @@ Partial Class Customer_Menu
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(rbOrderBoth)
         GroupBox1.Controls.Add(rbOnlyActivator)
         GroupBox1.Controls.Add(rbOnlySlime)
@@ -156,7 +158,7 @@ Partial Class Customer_Menu
         ' 
         lblDisclaimer.AutoSize = True
         lblDisclaimer.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold Or FontStyle.Underline, GraphicsUnit.Point, CByte(0))
-        lblDisclaimer.Location = New Point(37, 108)
+        lblDisclaimer.Location = New Point(34, 108)
         lblDisclaimer.Name = "lblDisclaimer"
         lblDisclaimer.Size = New Size(393, 17)
         lblDisclaimer.TabIndex = 13
@@ -165,7 +167,7 @@ Partial Class Customer_Menu
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(58, 182)
+        Label4.Location = New Point(49, 182)
         Label4.Name = "Label4"
         Label4.Size = New Size(100, 15)
         Label4.TabIndex = 8
@@ -174,7 +176,7 @@ Partial Class Customer_Menu
         ' lblActivatorAmount
         ' 
         lblActivatorAmount.AutoSize = True
-        lblActivatorAmount.Location = New Point(56, 153)
+        lblActivatorAmount.Location = New Point(47, 153)
         lblActivatorAmount.Name = "lblActivatorAmount"
         lblActivatorAmount.Size = New Size(102, 15)
         lblActivatorAmount.TabIndex = 7
@@ -183,7 +185,7 @@ Partial Class Customer_Menu
         ' lblSlimeAmount
         ' 
         lblSlimeAmount.AutoSize = True
-        lblSlimeAmount.Location = New Point(61, 105)
+        lblSlimeAmount.Location = New Point(52, 105)
         lblSlimeAmount.Name = "lblSlimeAmount"
         lblSlimeAmount.Size = New Size(97, 15)
         lblSlimeAmount.TabIndex = 6
@@ -192,7 +194,7 @@ Partial Class Customer_Menu
         ' comActivatorAmount
         ' 
         comActivatorAmount.FormattingEnabled = True
-        comActivatorAmount.Location = New Point(164, 150)
+        comActivatorAmount.Location = New Point(155, 150)
         comActivatorAmount.Name = "comActivatorAmount"
         comActivatorAmount.Size = New Size(242, 23)
         comActivatorAmount.TabIndex = 5
@@ -200,7 +202,7 @@ Partial Class Customer_Menu
         ' comSlimeAmount
         ' 
         comSlimeAmount.FormattingEnabled = True
-        comSlimeAmount.Location = New Point(164, 102)
+        comSlimeAmount.Location = New Point(155, 102)
         comSlimeAmount.Name = "comSlimeAmount"
         comSlimeAmount.Size = New Size(242, 23)
         comSlimeAmount.TabIndex = 4
@@ -223,6 +225,16 @@ Partial Class Customer_Menu
         lblForgotID.Size = New Size(293, 34)
         lblForgotID.TabIndex = 8
         lblForgotID.Text = "Your Customer ID will automatically link your shipping details! (Click Here if you dont remember your ID!)"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(403, 182)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(40, 15)
+        Label1.TabIndex = 9
+        Label1.Text = "Jeex71"
         ' 
         ' Customer_Menu
         ' 
@@ -261,4 +273,5 @@ Partial Class Customer_Menu
     Friend WithEvents rbOnlySlime As RadioButton
     Friend WithEvents rbOrderBoth As RadioButton
     Friend WithEvents rbOnlyActivator As RadioButton
+    Friend WithEvents Label1 As Label
 End Class
