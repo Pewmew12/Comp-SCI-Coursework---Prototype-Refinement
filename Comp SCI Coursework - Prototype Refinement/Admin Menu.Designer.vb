@@ -73,7 +73,7 @@ Partial Class Admin_Menu
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Label7)
         GroupBox1.Controls.Add(Label3)
-        GroupBox1.Location = New Point(12, 12)
+        GroupBox1.Location = New Point(12, 13)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(369, 259)
         GroupBox1.TabIndex = 0
@@ -171,9 +171,9 @@ Partial Class Admin_Menu
         ' 
         ' rtbCurrentEmployees
         ' 
-        rtbCurrentEmployees.Location = New Point(387, 30)
+        rtbCurrentEmployees.Location = New Point(387, 27)
         rtbCurrentEmployees.Name = "rtbCurrentEmployees"
-        rtbCurrentEmployees.Size = New Size(369, 241)
+        rtbCurrentEmployees.Size = New Size(369, 245)
         rtbCurrentEmployees.TabIndex = 1
         rtbCurrentEmployees.Text = ""
         ' 
@@ -196,7 +196,7 @@ Partial Class Admin_Menu
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(387, 12)
+        Label2.Location = New Point(387, 9)
         Label2.Name = "Label2"
         Label2.Size = New Size(110, 15)
         Label2.TabIndex = 5
@@ -213,7 +213,7 @@ Partial Class Admin_Menu
         GroupBox2.Controls.Add(txtBank)
         GroupBox2.Controls.Add(txtPayFrequency)
         GroupBox2.Controls.Add(txtPayAmount)
-        GroupBox2.Location = New Point(12, 277)
+        GroupBox2.Location = New Point(12, 278)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(369, 214)
         GroupBox2.TabIndex = 6
@@ -289,7 +289,7 @@ Partial Class Admin_Menu
         ' 
         ' butSearchEmployee
         ' 
-        butSearchEmployee.Location = New Point(575, 277)
+        butSearchEmployee.Location = New Point(575, 278)
         butSearchEmployee.Name = "butSearchEmployee"
         butSearchEmployee.Size = New Size(181, 23)
         butSearchEmployee.TabIndex = 7
@@ -298,7 +298,7 @@ Partial Class Admin_Menu
         ' 
         ' butEditDeleteEmployee
         ' 
-        butEditDeleteEmployee.Location = New Point(387, 277)
+        butEditDeleteEmployee.Location = New Point(387, 278)
         butEditDeleteEmployee.Name = "butEditDeleteEmployee"
         butEditDeleteEmployee.Size = New Size(182, 23)
         butEditDeleteEmployee.TabIndex = 8
@@ -336,7 +336,7 @@ Partial Class Admin_Menu
         ' 
         GroupBox3.Controls.Add(butOverview)
         GroupBox3.Controls.Add(butEmployeeMenu)
-        GroupBox3.Location = New Point(387, 311)
+        GroupBox3.Location = New Point(387, 312)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Size = New Size(369, 87)
         GroupBox3.TabIndex = 12
@@ -347,7 +347,7 @@ Partial Class Admin_Menu
         ' 
         GroupBox4.Controls.Add(butNewSlime)
         GroupBox4.Controls.Add(butDeleteSlime)
-        GroupBox4.Location = New Point(387, 404)
+        GroupBox4.Location = New Point(387, 405)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(369, 87)
         GroupBox4.TabIndex = 13
