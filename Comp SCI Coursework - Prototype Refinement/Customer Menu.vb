@@ -223,7 +223,7 @@ Public Class Customer_Menu
                 'saving order based off what was selected (visible)
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & SlimeType & "," & SlimeAmount)
+                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & SlimeType & "," & SlimeAmount)
                 CustomerOrder.Close()
 
             ElseIf OrderActivator = True Then
@@ -239,7 +239,7 @@ Public Class Customer_Menu
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             ElseIf Both = True Then
@@ -255,7 +255,7 @@ Public Class Customer_Menu
 
                 CustomerOrder = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerOrders.txt"), True)
 
-                CustomerOrder.WriteLine(SearchID & "," & OrderNumber & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
+                CustomerOrder.WriteLine(SearchID & "," & "Order" & OrderNumber & "," & SlimeType & "," & SlimeAmount & "," & ActivatorAmount)
                 CustomerOrder.Close()
 
             End If
