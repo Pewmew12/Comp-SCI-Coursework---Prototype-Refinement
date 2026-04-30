@@ -173,7 +173,7 @@ Partial Class Admin_Menu
         ' 
         rtbCurrentEmployees.Location = New Point(387, 27)
         rtbCurrentEmployees.Name = "rtbCurrentEmployees"
-        rtbCurrentEmployees.Size = New Size(491, 245)
+        rtbCurrentEmployees.Size = New Size(465, 245)
         rtbCurrentEmployees.TabIndex = 1
         rtbCurrentEmployees.Text = ""
         ' 
@@ -289,7 +289,7 @@ Partial Class Admin_Menu
         ' 
         ' butSearchEmployee
         ' 
-        butSearchEmployee.Location = New Point(697, 278)
+        butSearchEmployee.Location = New Point(671, 278)
         butSearchEmployee.Name = "butSearchEmployee"
         butSearchEmployee.Size = New Size(181, 23)
         butSearchEmployee.TabIndex = 7
@@ -336,7 +336,7 @@ Partial Class Admin_Menu
         ' 
         GroupBox3.Controls.Add(butOverview)
         GroupBox3.Controls.Add(butEmployeeMenu)
-        GroupBox3.Location = New Point(451, 312)
+        GroupBox3.Location = New Point(437, 312)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Size = New Size(369, 87)
         GroupBox3.TabIndex = 12
@@ -347,7 +347,7 @@ Partial Class Admin_Menu
         ' 
         GroupBox4.Controls.Add(butNewSlime)
         GroupBox4.Controls.Add(butDeleteSlime)
-        GroupBox4.Location = New Point(451, 405)
+        GroupBox4.Location = New Point(437, 405)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(369, 87)
         GroupBox4.TabIndex = 13
@@ -358,7 +358,7 @@ Partial Class Admin_Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(890, 503)
+        ClientSize = New Size(871, 503)
         Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
         Controls.Add(butEditDeleteEmployee)
