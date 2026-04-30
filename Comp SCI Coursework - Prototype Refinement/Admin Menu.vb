@@ -57,7 +57,15 @@
 
         EmployeeID = txtPhoneNumber.Text.Substring(0, 2) & txtEmail.Text.Substring(0, 2).ToUpper & txtSName.Text.Substring(0, 1).ToLower & txtFName.Text.Substring(0, 1).ToUpper & RNumber
 
-        MsgBox(EmployeeID)
+        'saving Employee info
+        Dim EmployeeInfo As System.IO.StreamWriter
+
+        EmployeeInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeInfo.txt"), True)
+        EmployeeInfo.WriteLine(EmployeeID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNumber)
+        EmployeeInfo.Close()
+
+        MsgBox("Employee Added!")
+
 
     End Sub
 End Class
