@@ -48,7 +48,7 @@ Partial Class Admin_Menu
         txtBank = New TextBox()
         txtPayAmount = New TextBox()
         butSearchEmployee = New Button()
-        butEditDeleteEmployee = New Button()
+        butDeleteEmployee = New Button()
         butNewSlime = New Button()
         butEmployeeMenu = New Button()
         butOverview = New Button()
@@ -56,6 +56,8 @@ Partial Class Admin_Menu
         GroupBox4 = New GroupBox()
         rtbEmployeePayroll = New RichTextBox()
         Label1 = New Label()
+        comEmployeeID = New ComboBox()
+        Label12 = New Label()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
@@ -184,7 +186,7 @@ Partial Class Admin_Menu
         rtbCurrentEmployees.Location = New Point(442, 36)
         rtbCurrentEmployees.Margin = New Padding(3, 4, 3, 4)
         rtbCurrentEmployees.Name = "rtbCurrentEmployees"
-        rtbCurrentEmployees.Size = New Size(531, 148)
+        rtbCurrentEmployees.Size = New Size(748, 148)
         rtbCurrentEmployees.TabIndex = 1
         rtbCurrentEmployees.Text = ""
         ' 
@@ -308,7 +310,7 @@ Partial Class Admin_Menu
         ' 
         ' butSearchEmployee
         ' 
-        butSearchEmployee.Location = New Point(767, 371)
+        butSearchEmployee.Location = New Point(983, 363)
         butSearchEmployee.Margin = New Padding(3, 4, 3, 4)
         butSearchEmployee.Name = "butSearchEmployee"
         butSearchEmployee.Size = New Size(207, 31)
@@ -316,15 +318,15 @@ Partial Class Admin_Menu
         butSearchEmployee.Text = "Search Employees/Payrolls"
         butSearchEmployee.UseVisualStyleBackColor = True
         ' 
-        ' butEditDeleteEmployee
+        ' butDeleteEmployee
         ' 
-        butEditDeleteEmployee.Location = New Point(442, 371)
-        butEditDeleteEmployee.Margin = New Padding(3, 4, 3, 4)
-        butEditDeleteEmployee.Name = "butEditDeleteEmployee"
-        butEditDeleteEmployee.Size = New Size(245, 31)
-        butEditDeleteEmployee.TabIndex = 8
-        butEditDeleteEmployee.Text = "Edit/Delete Employees/Payroll"
-        butEditDeleteEmployee.UseVisualStyleBackColor = True
+        butDeleteEmployee.Location = New Point(735, 363)
+        butDeleteEmployee.Margin = New Padding(3, 4, 3, 4)
+        butDeleteEmployee.Name = "butDeleteEmployee"
+        butDeleteEmployee.Size = New Size(206, 31)
+        butDeleteEmployee.TabIndex = 8
+        butDeleteEmployee.Text = "Delete Employees/Payroll"
+        butDeleteEmployee.UseVisualStyleBackColor = True
         ' 
         ' butNewSlime
         ' 
@@ -387,7 +389,7 @@ Partial Class Admin_Menu
         rtbEmployeePayroll.Location = New Point(442, 212)
         rtbEmployeePayroll.Margin = New Padding(3, 4, 3, 4)
         rtbEmployeePayroll.Name = "rtbEmployeePayroll"
-        rtbEmployeePayroll.Size = New Size(531, 144)
+        rtbEmployeePayroll.Size = New Size(748, 144)
         rtbEmployeePayroll.TabIndex = 14
         rtbEmployeePayroll.Text = ""
         ' 
@@ -400,16 +402,35 @@ Partial Class Admin_Menu
         Label1.TabIndex = 15
         Label1.Text = "Employee Payroll:"
         ' 
+        ' comEmployeeID
+        ' 
+        comEmployeeID.FormattingEnabled = True
+        comEmployeeID.Location = New Point(578, 365)
+        comEmployeeID.Name = "comEmployeeID"
+        comEmployeeID.Size = New Size(151, 28)
+        comEmployeeID.TabIndex = 16
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Location = New Point(442, 366)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(135, 20)
+        Label12.TabIndex = 17
+        Label12.Text = "Select ID to delete:"
+        ' 
         ' Admin_Menu
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(995, 671)
+        ClientSize = New Size(1202, 671)
+        Controls.Add(Label12)
+        Controls.Add(comEmployeeID)
         Controls.Add(Label1)
         Controls.Add(rtbEmployeePayroll)
         Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
-        Controls.Add(butEditDeleteEmployee)
+        Controls.Add(butDeleteEmployee)
         Controls.Add(butSearchEmployee)
         Controls.Add(GroupBox2)
         Controls.Add(Label2)
@@ -445,7 +466,7 @@ Partial Class Admin_Menu
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents butEditDeleteEmployee As Button
+    Friend WithEvents butDeleteEmployee As Button
     Friend WithEvents butAddEmployee As Button
     Friend WithEvents butSavePay As Button
     Friend WithEvents Label10 As Label
@@ -462,4 +483,6 @@ Partial Class Admin_Menu
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents rtbEmployeePayroll As RichTextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents comEmployeeID As ComboBox
+    Friend WithEvents Label12 As Label
 End Class

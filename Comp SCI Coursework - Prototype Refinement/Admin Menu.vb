@@ -1,6 +1,20 @@
 ﻿Imports System.Windows.Forms.AxHost
 
 Public Class Admin_Menu
+    Public Structure EmployeeDetails
+
+        Public DELemployeeID As String
+        Public DELfname As String
+        Public DELsname As String
+        Public DELdob As String
+        Public DELemail As String
+        Public DELphonenum As String
+
+    End Structure
+
+    Public allEmployees(0 To 99) As EmployeeDetails
+    Public NumEmployee As Integer = 0
+
     Private Sub butEmployeeMenu_Click(sender As Object, e As EventArgs) Handles butEmployeeMenu.Click
 
         Employee_Menu.Show()
@@ -13,6 +27,25 @@ Public Class Admin_Menu
         rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
 
         rtbEmployeePayroll.LoadFile(Dir$("EmployeePayroll.txt"), RichTextBoxStreamType.PlainText)
+
+        'Employee ID's for comboBox
+        Dim ComboFile As System.IO.StreamReader
+        Dim ComboLine As String
+        Dim ComboParts(0 To 1) As String
+
+        ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+
+        Do
+            ComboLine = ComboFile.ReadLine()
+            ComboParts = ComboLine.Split(",")
+
+            For index As Integer = 1 To 1
+                comEmployeeID.Items.Add(ComboParts(0))
+            Next
+
+        Loop Until (ComboFile.EndOfStream)
+
+        ComboFile.Close()
 
     End Sub
 
@@ -76,8 +109,27 @@ Public Class Admin_Menu
         txtEmail.Text = ""
         txtPhoneNumber.Text = ""
 
-        're-loads the employee info into the rich textbox after saving without having to reopen form
+        're-loads the employee info into the rich textbox after saving without having to reopen form & for combo box
         rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
+
+        Dim ComboFile As System.IO.StreamReader
+        Dim ComboLine As String
+        Dim ComboParts(0 To 1) As String
+
+        ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+
+        Do
+            ComboLine = ComboFile.ReadLine()
+            ComboParts = ComboLine.Split(",")
+
+            For index As Integer = 1 To 1
+                comEmployeeID.Items.Add(ComboParts(0))
+            Next
+
+        Loop Until (ComboFile.EndOfStream)
+
+        ComboFile.Close()
+
 
     End Sub
 
@@ -178,17 +230,17 @@ Public Class Admin_Menu
         Loop Until (file.EndOfStream)
 
         If correct = False Then
-            MsgBox("EmployeeID incorrect or Not Found")
+            MsgBox("EmployeeID incorrect or Not Found", 48)
             Exit Sub
         End If
 
         file.Close()
 
-        Dim EmployeeInfo As System.IO.StreamWriter
+        Dim EmployeeBank As System.IO.StreamWriter
 
-        EmployeeInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeePayroll.txt"), True)
-        EmployeeInfo.WriteLine(EmployeeID & "," & Bank & "," & Amount & "," & Frequency)
-        EmployeeInfo.Close()
+        EmployeeBank = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeePayroll.txt"), True)
+        EmployeeBank.WriteLine(EmployeeID & "," & Bank & "," & Amount & "," & Frequency)
+        EmployeeBank.Close()
 
         MsgBox("Employee Payroll saved!")
 
@@ -198,6 +250,70 @@ Public Class Admin_Menu
         txtPayFrequency.Text = ""
 
         rtbEmployeePayroll.LoadFile(Dir$("EmployeePayroll.txt"), RichTextBoxStreamType.PlainText)
+
+    End Sub
+
+    Private Sub butEditDeleteEmployee_Click(sender As Object, e As EventArgs) Handles butDeleteEmployee.Click
+
+        'Dim input As String
+        'Dim correct As Boolean = False
+
+        'Dim file As System.IO.StreamReader
+        'Dim parts(0 To 5) As String
+        'Dim line As String
+
+        'Input = InputBox("Enter EmployeeID to delete", 48)
+
+        'file = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+
+        'Do
+        'line = file.ReadLine()
+        'parts = line.Split(",")
+
+        'If parts(0) = input Then
+        'correct = True
+        'End If
+
+        'Loop Until (file.EndOfStream)
+
+        'file.Close()
+
+        'If correct = False Then
+        'MsgBox("EmployeeID incorrect or Not Found", 48)
+        'Exit Sub
+        'End If
+
+        'deleting a file
+        'deletes entire file currently (bruh)
+        Dim SelectedCustomerID As String = comEmployeeID.Text
+
+        For x = 0 To NumEmployee - 1
+            If SelectedCustomerID = allEmployees(x).DELemployeeID Then
+                For y = x To NumEmployee - 1
+                    allEmployees(y).DELemployeeID = allEmployees(y + 1).DELemployeeID
+                    allEmployees(y).DELfname = allEmployees(y + 1).DELfname
+                    allEmployees(y).DELsname = allEmployees(y + 1).DELsname
+                    allEmployees(y).DELdob = allEmployees(y + 1).DELdob
+                    allEmployees(y).DELemail = allEmployees(y + 1).DELemail
+                    allEmployees(y).DELphonenum = allEmployees(y + 1).DELphonenum
+                Next
+                NumEmployee = NumEmployee - 1
+            ElseIf SelectedCustomerID <> allEmployees(x).DELemployeeID Then
+                MsgBox("EmployeeID incorrect or Not Found", 48)
+                Exit Sub
+            End If
+        Next
+
+        Dim delete As System.IO.StreamWriter
+            delete = My.Computer.FileSystem.OpenTextFileWriter(Dir("EmployeeInfo.txt"), False)
+
+            For y = 0 To (NumEmployee - 1)
+                delete.WriteLine(allEmployees(y).DELemployeeID & "," & allEmployees(y).DELfname & "," & allEmployees(y).DELsname & "," & allEmployees(y).DELdob & "," & allEmployees(y).DELemail & "," & allEmployees(y).DELphonenum)
+            Next y
+            delete.Close()
+
+        rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
+        MsgBox("AAAAAAAAAAAAAAAAH")
 
     End Sub
 End Class
