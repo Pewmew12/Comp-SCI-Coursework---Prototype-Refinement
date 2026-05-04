@@ -26,14 +26,53 @@ Public Class Customer_Menu
 
         Loop Until (file.EndOfStream)
 
-        'hard coded but now simplified number combo boxes - temporary (use public variable or file)
-        For index As Integer = 1 To 5
-            comSlimeAmount.Items.Add(index)
-        Next
+        file.Close()
 
-        For index As Integer = 1 To 5
-            comActivatorAmount.Items.Add(index)
-        Next
+        'Slime Amount
+        Dim SlimeAmountfile As System.IO.StreamReader
+        Dim SlimeAmountline As String
+        Dim SlimeAmountparts(0 To 1) As String
+
+        SlimeAmountfile = My.Computer.FileSystem.OpenTextFileReader(Dir("SlimeLimit.txt"))
+
+        Do
+            SlimeAmountline = SlimeAmountfile.ReadLine()
+            SlimeAmountparts = SlimeAmountline.Split(",")
+
+            For index As Integer = 1 To 1
+                comSlimeAmount.Items.Add(SlimeAmountparts(0))
+            Next
+
+        Loop Until (SlimeAmountfile.EndOfStream)
+
+        SlimeAmountfile.Close()
+
+        Dim ActivatorAmountfile As System.IO.StreamReader
+        Dim ActivatorAmountline As String
+        Dim ActivatorAmountparts(0 To 1) As String
+
+        ActivatorAmountfile = My.Computer.FileSystem.OpenTextFileReader(Dir("ActivatorLimit.txt"))
+
+        Do
+            ActivatorAmountline = ActivatorAmountfile.ReadLine()
+            ActivatorAmountparts = ActivatorAmountline.Split(",")
+
+            For index As Integer = 1 To 1
+                comSlimeAmount.Items.Add(ActivatorAmountparts(0))
+            Next
+
+        Loop Until (ActivatorAmountfile.EndOfStream)
+
+        ActivatorAmountfile.Close()
+
+        'old hard coded combo boc filling
+        'For index As Integer = 1 To 5
+        'comSlimeAmount.Items.Add(index)
+        'Next
+
+        'For index As Integer = 1 To 5
+        'comActivatorAmount.Items.Add(index)
+        'Next
 
         comSlimeType.Visible = False
         comSlimeAmount.Visible = False

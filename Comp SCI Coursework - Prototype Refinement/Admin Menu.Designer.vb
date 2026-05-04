@@ -54,6 +54,11 @@ Partial Class Admin_Menu
         butOverview = New Button()
         GroupBox3 = New GroupBox()
         GroupBox4 = New GroupBox()
+        lblActivatorLimit = New Label()
+        lblSlimeLimit = New Label()
+        butViewSlimes = New Button()
+        butSlimeLimit = New Button()
+        butActivatorLimit = New Button()
         rtbEmployeePayroll = New RichTextBox()
         Label1 = New Label()
         comEmployeeID = New ComboBox()
@@ -200,7 +205,7 @@ Partial Class Admin_Menu
         ' 
         ' butDeleteSlime
         ' 
-        butDeleteSlime.Location = New Point(109, 68)
+        butDeleteSlime.Location = New Point(31, 62)
         butDeleteSlime.Margin = New Padding(3, 4, 3, 4)
         butDeleteSlime.Name = "butDeleteSlime"
         butDeleteSlime.Size = New Size(207, 31)
@@ -330,7 +335,7 @@ Partial Class Admin_Menu
         ' 
         ' butNewSlime
         ' 
-        butNewSlime.Location = New Point(109, 29)
+        butNewSlime.Location = New Point(30, 24)
         butNewSlime.Margin = New Padding(3, 4, 3, 4)
         butNewSlime.Name = "butNewSlime"
         butNewSlime.Size = New Size(208, 31)
@@ -340,7 +345,7 @@ Partial Class Admin_Menu
         ' 
         ' butEmployeeMenu
         ' 
-        butEmployeeMenu.Location = New Point(110, 68)
+        butEmployeeMenu.Location = New Point(23, 67)
         butEmployeeMenu.Margin = New Padding(3, 4, 3, 4)
         butEmployeeMenu.Name = "butEmployeeMenu"
         butEmployeeMenu.Size = New Size(207, 31)
@@ -350,7 +355,7 @@ Partial Class Admin_Menu
         ' 
         ' butOverview
         ' 
-        butOverview.Location = New Point(109, 29)
+        butOverview.Location = New Point(22, 28)
         butOverview.Margin = New Padding(3, 4, 3, 4)
         butOverview.Name = "butOverview"
         butOverview.Size = New Size(208, 31)
@@ -362,27 +367,77 @@ Partial Class Admin_Menu
         ' 
         GroupBox3.Controls.Add(butOverview)
         GroupBox3.Controls.Add(butEmployeeMenu)
-        GroupBox3.Location = New Point(499, 416)
+        GroupBox3.Location = New Point(442, 482)
         GroupBox3.Margin = New Padding(3, 4, 3, 4)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Padding = New Padding(3, 4, 3, 4)
-        GroupBox3.Size = New Size(422, 116)
+        GroupBox3.Size = New Size(252, 116)
         GroupBox3.TabIndex = 12
         GroupBox3.TabStop = False
         GroupBox3.Text = "Overview"
         ' 
         ' GroupBox4
         ' 
+        GroupBox4.Controls.Add(lblActivatorLimit)
+        GroupBox4.Controls.Add(lblSlimeLimit)
+        GroupBox4.Controls.Add(butViewSlimes)
+        GroupBox4.Controls.Add(butSlimeLimit)
+        GroupBox4.Controls.Add(butActivatorLimit)
         GroupBox4.Controls.Add(butNewSlime)
         GroupBox4.Controls.Add(butDeleteSlime)
-        GroupBox4.Location = New Point(499, 540)
+        GroupBox4.Location = New Point(700, 420)
         GroupBox4.Margin = New Padding(3, 4, 3, 4)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Padding = New Padding(3, 4, 3, 4)
-        GroupBox4.Size = New Size(422, 116)
+        GroupBox4.Size = New Size(490, 236)
         GroupBox4.TabIndex = 13
         GroupBox4.TabStop = False
         GroupBox4.Text = "Slimes"
+        ' 
+        ' lblActivatorLimit
+        ' 
+        lblActivatorLimit.AutoSize = True
+        lblActivatorLimit.Location = New Point(264, 181)
+        lblActivatorLimit.Name = "lblActivatorLimit"
+        lblActivatorLimit.Size = New Size(173, 20)
+        lblActivatorLimit.TabIndex = 14
+        lblActivatorLimit.Text = "Current Activator Limit: 0"
+        ' 
+        ' lblSlimeLimit
+        ' 
+        lblSlimeLimit.AutoSize = True
+        lblSlimeLimit.Location = New Point(264, 142)
+        lblSlimeLimit.Name = "lblSlimeLimit"
+        lblSlimeLimit.Size = New Size(150, 20)
+        lblSlimeLimit.TabIndex = 13
+        lblSlimeLimit.Text = "Current Slime Limit: 0"
+        ' 
+        ' butViewSlimes
+        ' 
+        butViewSlimes.Location = New Point(264, 25)
+        butViewSlimes.Name = "butViewSlimes"
+        butViewSlimes.Size = New Size(207, 29)
+        butViewSlimes.TabIndex = 12
+        butViewSlimes.Text = "View Current Slimes"
+        butViewSlimes.UseVisualStyleBackColor = True
+        ' 
+        ' butSlimeLimit
+        ' 
+        butSlimeLimit.Location = New Point(31, 138)
+        butSlimeLimit.Name = "butSlimeLimit"
+        butSlimeLimit.Size = New Size(207, 29)
+        butSlimeLimit.TabIndex = 11
+        butSlimeLimit.Text = "Change Slime Buying Limit"
+        butSlimeLimit.UseVisualStyleBackColor = True
+        ' 
+        ' butActivatorLimit
+        ' 
+        butActivatorLimit.Location = New Point(21, 177)
+        butActivatorLimit.Name = "butActivatorLimit"
+        butActivatorLimit.Size = New Size(228, 29)
+        butActivatorLimit.TabIndex = 10
+        butActivatorLimit.Text = "Change Activator Buying Limit"
+        butActivatorLimit.UseVisualStyleBackColor = True
         ' 
         ' rtbEmployeePayroll
         ' 
@@ -445,6 +500,7 @@ Partial Class Admin_Menu
         GroupBox2.PerformLayout()
         GroupBox3.ResumeLayout(False)
         GroupBox4.ResumeLayout(False)
+        GroupBox4.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -485,4 +541,9 @@ Partial Class Admin_Menu
     Friend WithEvents Label1 As Label
     Friend WithEvents comEmployeeID As ComboBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents butSlimeLimit As Button
+    Friend WithEvents butActivatorLimit As Button
+    Friend WithEvents lblActivatorLimit As Label
+    Friend WithEvents lblSlimeLimit As Label
+    Friend WithEvents butViewSlimes As Button
 End Class

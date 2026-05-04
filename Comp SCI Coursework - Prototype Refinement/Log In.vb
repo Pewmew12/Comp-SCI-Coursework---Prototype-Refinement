@@ -93,8 +93,42 @@
 
         Loop Until (Adminfile.EndOfStream)
 
+        AdminFile.Close()
+
+        'search function for employee
+        Dim EmployeeFile As System.IO.StreamReader
+        Dim Employeeparts(0 To 5) As String
+        Dim Employeeline As String
+
+        Dim EmployeeCorrectID As Boolean = False
+        Dim EmployeeCorrectFName As Boolean = False
+        Dim EmployeeCorrectSName As Boolean = False
+
+        EmployeeFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+
+        Do
+            Employeeline = EmployeeFile.ReadLine()
+            Employeeparts = Employeeline.Split(",")
+
+            If Employeeparts(0) = SearchID Then
+                EmployeeCorrectID = True
+            End If
+
+            If Employeeparts(1) = SearchFName Then
+                EmployeeCorrectFName = True
+            End If
+
+            If Employeeparts(2) = SearchSName Then
+                EmployeeCorrectSName = True
+            End If
+
+        Loop Until (EmployeeFile.EndOfStream)
+
+        EmployeeFile.Close()
+
         Dim CorrectAllCustomer As Boolean = (CorrectID = True And CorrectFName = True And CorrectSName = True)
         Dim CorrectAllAdmin As Boolean = (AdminCorrectID = True And AdminCorrectFName = True And AdminCorrectSName = True)
+        Dim CorrectAllEmployee As Boolean = (EmployeeCorrectID = True And EmployeeCorrectFName = True And EmployeeCorrectSName = True)
 
 
         If CorrectAllCustomer = True Then
@@ -113,7 +147,15 @@
             Admin_Menu.Show()
             Me.Close()
             Exit Sub
-        ElseIf CorrectAllCustomer = False Or CorrectAllAdmin = False Then
+        ElseIf CorrectAllEmployee = True Then
+            MsgBox("Log In Sucessful:" & vbCrLf & "Hello Employee!")
+            txtFName.Text = ""
+            txtSName.Text = ""
+            txtID.Text = ""
+            Employee_Menu.Show()
+            Me.Close()
+            Exit Sub
+        ElseIf CorrectAllCustomer = False Or CorrectAllAdmin = False Or CorrectAllEmployee = False Then
             MsgBox("Incorrect Name/Surname/ID" & vbCrLf & "Please try again", 48)
         End If
 

@@ -1,19 +1,24 @@
 ﻿Imports System.Windows.Forms.AxHost
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar
 
 Public Class Admin_Menu
-    Public Structure EmployeeDetails
 
-        Public DELemployeeID As String
-        Public DELfname As String
-        Public DELsname As String
-        Public DELdob As String
-        Public DELemail As String
-        Public DELphonenum As String
+    'Public Structure EmployeeDetails
 
-    End Structure
+    'Public DELemployeeID As String
+    'Public DELfname As String
+    'Public DELsname As String
+    'Public DELdob As String
+    'Public DELemail As String
+    'Public DELphonenum As String
 
-    Public allEmployees(0 To 99) As EmployeeDetails
-    Public NumEmployee As Integer = 0
+    'End Structure
+
+    'Public allEmployees(0 To 99) As EmployeeDetails
+    'Public NumEmployee As Integer = 0
+
+    Public NewLimit As Integer
+    Public NewLimitActi As Integer
 
     Private Sub butEmployeeMenu_Click(sender As Object, e As EventArgs) Handles butEmployeeMenu.Click
 
@@ -255,6 +260,8 @@ Public Class Admin_Menu
 
     Private Sub butEditDeleteEmployee_Click(sender As Object, e As EventArgs) Handles butDeleteEmployee.Click
 
+        'come back to delete functions
+
         'Dim input As String
         'Dim correct As Boolean = False
 
@@ -285,35 +292,154 @@ Public Class Admin_Menu
 
         'deleting a file
         'deletes entire file currently (bruh)
-        Dim SelectedCustomerID As String = comEmployeeID.Text
+        'Dim SelectedCustomerID As String = comEmployeeID.Text
 
-        For x = 0 To NumEmployee - 1
-            If SelectedCustomerID = allEmployees(x).DELemployeeID Then
-                For y = x To NumEmployee - 1
-                    allEmployees(y).DELemployeeID = allEmployees(y + 1).DELemployeeID
-                    allEmployees(y).DELfname = allEmployees(y + 1).DELfname
-                    allEmployees(y).DELsname = allEmployees(y + 1).DELsname
-                    allEmployees(y).DELdob = allEmployees(y + 1).DELdob
-                    allEmployees(y).DELemail = allEmployees(y + 1).DELemail
-                    allEmployees(y).DELphonenum = allEmployees(y + 1).DELphonenum
-                Next
-                NumEmployee = NumEmployee - 1
-            ElseIf SelectedCustomerID <> allEmployees(x).DELemployeeID Then
-                MsgBox("EmployeeID incorrect or Not Found", 48)
-                Exit Sub
-            End If
+        ' For x = 0 To NumEmployee - 1
+        'If SelectedCustomerID = allEmployees(x).DELemployeeID Then
+        'For y = x To NumEmployee - 1
+        'allEmployees(y).DELemployeeID = allEmployees(y + 1).DELemployeeID
+        'allEmployees(y).DELfname = allEmployees(y + 1).DELfname
+        'allEmployees(y).DELsname = allEmployees(y + 1).DELsname
+        'allEmployees(y).DELdob = allEmployees(y + 1).DELdob
+        'allEmployees(y).DELemail = allEmployees(y + 1).DELemail
+        'allEmployees(y).DELphonenum = allEmployees(y + 1).DELphonenum
+        'Next
+        'NumEmployee = NumEmployee - 1
+        'ElseIf SelectedCustomerID <> allEmployees(x).DELemployeeID Then
+        'MsgBox("EmployeeID incorrect or Not Found", 48)
+        'Exit Sub
+        'End If
+        'Next
+
+        'Dim delete As System.IO.StreamWriter
+        'delete = My.Computer.FileSystem.OpenTextFileWriter(Dir("EmployeeInfo.txt"), False)
+
+        'For y = 0 To (NumEmployee - 1)
+        'delete.WriteLine(allEmployees(y).DELemployeeID & "," & allEmployees(y).DELfname & "," & allEmployees(y).DELsname & "," & allEmployees(y).DELdob & "," & allEmployees(y).DELemail & "," & allEmployees(y).DELphonenum)
+        'Next y
+        'delete.Close()
+
+        'rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
+        MsgBox("Fix this later")
+
+    End Sub
+
+    Private Sub butNewSlime_Click(sender As Object, e As EventArgs) Handles butNewSlime.Click
+
+        'declaring variables
+        Dim SlimeInput As String
+        Dim SlimeRecipie As String
+        Dim NewSlime As System.IO.StreamWriter
+        Dim NewRecipie As System.IO.StreamWriter
+        Dim SlimeID As Integer = 1
+
+        'inputting New Slime name
+        SlimeInput = InputBox("Insert the Name of the New Slime:")
+        If SlimeInput = "" Then
+            MsgBox("Enter a Slime Name")
+            Exit Sub
+        End If
+
+        SlimeRecipie = InputBox("Insert what and how much materials" & vbCrLf & "are needed for the New Slime")
+        If SlimeRecipie = "" Then
+            MsgBox("Enter what is needed for the Slime")
+            Exit Sub
+        End If
+
+        Dim Checker As String
+        Checker = InputBox("Is this Information Correct?" & vbCrLf & "Slime Name: " & SlimeInput & vbCrLf & "Slime Ingredients: " & SlimeRecipie & vbCrLf & "Type Y to Confirm.")
+
+        If Checker = "Y" Or Checker = "y" Then
+            'slimeID
+            Dim file As System.IO.StreamReader
+            Dim line As String
+
+            file = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
+
+            Do
+                line = file.ReadLine()
+                SlimeID = SlimeID + 1
+            Loop Until (file.EndOfStream)
+
+            file.Close()
+
+            'saving Slime details
+            'Slime Name
+            NewSlime = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Slimes.txt"), True)
+            NewSlime.WriteLine(SlimeInput & "," & "Slime" & SlimeID)
+            NewSlime.Close()
+
+            'Slime Recipie
+            NewRecipie = My.Computer.FileSystem.OpenTextFileWriter(Dir$("SlimeRecipies.txt"), True)
+            NewRecipie.WriteLine("Slime" & SlimeID & "," & SlimeRecipie)
+            NewRecipie.Close()
+
+            MsgBox("Slime Added!")
+            Exit Sub
+        ElseIf Checker <> "Y" Or Checker <> "y" Then
+            MsgBox("Slime Unsaved", 48)
+        End If
+
+    End Sub
+
+    Private Sub butSlimeLimit_Click(sender As Object, e As EventArgs) Handles butSlimeLimit.Click
+
+        'asking for a new limit for amount slimes purchasable in one order
+        Try
+            NewLimit = InputBox("Enter a New Limit for amount of Slimes purchasable in one order:")
+        Catch
+            MsgBox("Input entered is not a Number")
+            Exit Sub
+        End Try
+
+        Dim SlimeLimit As System.IO.StreamWriter
+        Dim DeletePrev As System.IO.StreamWriter
+
+        'deleting previous contents of file
+        DeletePrev = My.Computer.FileSystem.OpenTextFileWriter(Dir$("SlimeLimit.txt"), False)
+        DeletePrev.WriteLine()
+        DeletePrev.Close()
+
+        'saving new limit for slimes
+        SlimeLimit = My.Computer.FileSystem.OpenTextFileWriter(Dir$("SlimeLimit.txt"), True)
+
+        For index As Integer = 1 To NewLimit
+            SlimeLimit.WriteLine(index)
         Next
 
-        Dim delete As System.IO.StreamWriter
-            delete = My.Computer.FileSystem.OpenTextFileWriter(Dir("EmployeeInfo.txt"), False)
+        SlimeLimit.Close()
+        MsgBox("New Slime Limit Set!")
+        lblSlimeLimit.Text = "Current Slime Limit: " & NewLimit
 
-            For y = 0 To (NumEmployee - 1)
-                delete.WriteLine(allEmployees(y).DELemployeeID & "," & allEmployees(y).DELfname & "," & allEmployees(y).DELsname & "," & allEmployees(y).DELdob & "," & allEmployees(y).DELemail & "," & allEmployees(y).DELphonenum)
-            Next y
-            delete.Close()
+    End Sub
 
-        rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
-        MsgBox("AAAAAAAAAAAAAAAAH")
+    Private Sub butActivatorLimit_Click(sender As Object, e As EventArgs) Handles butActivatorLimit.Click
+
+        Try
+            NewLimitActi = InputBox("Enter a New Limit for amount of Slimes purchasable in one order:")
+        Catch
+            MsgBox("Input entered is not a Number")
+            Exit Sub
+        End Try
+
+        Dim SlimeLimit As System.IO.StreamWriter
+        Dim DeletePrev As System.IO.StreamWriter
+
+        'deleting previous contents of file
+        DeletePrev = My.Computer.FileSystem.OpenTextFileWriter(Dir$("ActivatorLimit.txt"), False)
+        DeletePrev.WriteLine()
+        DeletePrev.Close()
+
+        'saving new limit for slimes
+        SlimeLimit = My.Computer.FileSystem.OpenTextFileWriter(Dir$("ActivatorLimit.txt"), True)
+
+        For index As Integer = 1 To NewLimit
+            SlimeLimit.WriteLine(index)
+        Next
+
+        SlimeLimit.Close()
+        MsgBox("New Slime Limit Set!")
+        lblActivatorLimit.Text = "Current Activator Limit: " & NewLimitActi
 
     End Sub
 End Class
