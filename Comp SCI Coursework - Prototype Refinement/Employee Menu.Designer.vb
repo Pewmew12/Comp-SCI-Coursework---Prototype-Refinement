@@ -28,12 +28,16 @@ Partial Class Employee_Menu
         rtbSales = New RichTextBox()
         GroupBox2 = New GroupBox()
         GroupBox4 = New GroupBox()
+        butSearchSlime = New Button()
         rtbRecipies = New RichTextBox()
         butSearchStock = New Button()
         butUpdateStock = New Button()
         Label2 = New Label()
         rtbStock = New RichTextBox()
         GroupBox3 = New GroupBox()
+        butSearchDelivery = New Button()
+        Label7 = New Label()
+        rtbDeliveries = New RichTextBox()
         Label6 = New Label()
         Label5 = New Label()
         Label4 = New Label()
@@ -95,43 +99,53 @@ Partial Class Employee_Menu
         GroupBox2.Controls.Add(rtbStock)
         GroupBox2.Location = New Point(12, 12)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(890, 279)
+        GroupBox2.Size = New Size(1173, 279)
         GroupBox2.TabIndex = 1
         GroupBox2.TabStop = False
         GroupBox2.Text = "Stock"
         ' 
         ' GroupBox4
         ' 
+        GroupBox4.Controls.Add(butSearchSlime)
         GroupBox4.Controls.Add(rtbRecipies)
-        GroupBox4.Location = New Point(515, 93)
+        GroupBox4.Location = New Point(637, 93)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(358, 168)
+        GroupBox4.Size = New Size(518, 168)
         GroupBox4.TabIndex = 5
         GroupBox4.TabStop = False
         GroupBox4.Text = "Slime Recipies"
+        ' 
+        ' butSearchSlime
+        ' 
+        butSearchSlime.Location = New Point(346, 73)
+        butSearchSlime.Name = "butSearchSlime"
+        butSearchSlime.Size = New Size(166, 29)
+        butSearchSlime.TabIndex = 1
+        butSearchSlime.Text = "Search Slime Recipies"
+        butSearchSlime.UseVisualStyleBackColor = True
         ' 
         ' rtbRecipies
         ' 
         rtbRecipies.Location = New Point(18, 26)
         rtbRecipies.Name = "rtbRecipies"
-        rtbRecipies.Size = New Size(323, 120)
+        rtbRecipies.Size = New Size(323, 126)
         rtbRecipies.TabIndex = 0
         rtbRecipies.Text = ""
         ' 
         ' butSearchStock
         ' 
-        butSearchStock.Location = New Point(724, 46)
+        butSearchStock.Location = New Point(913, 46)
         butSearchStock.Name = "butSearchStock"
-        butSearchStock.Size = New Size(149, 29)
+        butSearchStock.Size = New Size(242, 29)
         butSearchStock.TabIndex = 4
         butSearchStock.Text = "Search Stock"
         butSearchStock.UseVisualStyleBackColor = True
         ' 
         ' butUpdateStock
         ' 
-        butUpdateStock.Location = New Point(533, 46)
+        butUpdateStock.Location = New Point(655, 47)
         butUpdateStock.Name = "butUpdateStock"
-        butUpdateStock.Size = New Size(149, 29)
+        butUpdateStock.Size = New Size(242, 29)
         butUpdateStock.TabIndex = 3
         butUpdateStock.Text = "Update Stock"
         butUpdateStock.UseVisualStyleBackColor = True
@@ -149,12 +163,15 @@ Partial Class Employee_Menu
         ' 
         rtbStock.Location = New Point(17, 47)
         rtbStock.Name = "rtbStock"
-        rtbStock.Size = New Size(492, 214)
+        rtbStock.Size = New Size(614, 214)
         rtbStock.TabIndex = 0
         rtbStock.Text = ""
         ' 
         ' GroupBox3
         ' 
+        GroupBox3.Controls.Add(butSearchDelivery)
+        GroupBox3.Controls.Add(Label7)
+        GroupBox3.Controls.Add(rtbDeliveries)
         GroupBox3.Controls.Add(Label6)
         GroupBox3.Controls.Add(Label5)
         GroupBox3.Controls.Add(Label4)
@@ -165,10 +182,36 @@ Partial Class Employee_Menu
         GroupBox3.Controls.Add(txtEmployeeID)
         GroupBox3.Location = New Point(559, 305)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(343, 268)
+        GroupBox3.Size = New Size(626, 268)
         GroupBox3.TabIndex = 1
         GroupBox3.TabStop = False
         GroupBox3.Text = "Deliveries"
+        ' 
+        ' butSearchDelivery
+        ' 
+        butSearchDelivery.Location = New Point(184, 224)
+        butSearchDelivery.Name = "butSearchDelivery"
+        butSearchDelivery.Size = New Size(142, 29)
+        butSearchDelivery.TabIndex = 10
+        butSearchDelivery.Text = "Search Delivery"
+        butSearchDelivery.UseVisualStyleBackColor = True
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(357, 22)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(77, 20)
+        Label7.TabIndex = 9
+        Label7.Text = "Deliveries:"
+        ' 
+        ' rtbDeliveries
+        ' 
+        rtbDeliveries.Location = New Point(357, 45)
+        rtbDeliveries.Name = "rtbDeliveries"
+        rtbDeliveries.Size = New Size(251, 208)
+        rtbDeliveries.TabIndex = 8
+        rtbDeliveries.Text = ""
         ' 
         ' Label6
         ' 
@@ -222,9 +265,9 @@ Partial Class Employee_Menu
         ' 
         ' butUpdateDelivery
         ' 
-        butUpdateDelivery.Location = New Point(95, 224)
+        butUpdateDelivery.Location = New Point(23, 224)
         butUpdateDelivery.Name = "butUpdateDelivery"
-        butUpdateDelivery.Size = New Size(155, 29)
+        butUpdateDelivery.Size = New Size(142, 29)
         butUpdateDelivery.TabIndex = 1
         butUpdateDelivery.Text = "Update Delivery"
         butUpdateDelivery.UseVisualStyleBackColor = True
@@ -240,7 +283,7 @@ Partial Class Employee_Menu
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(914, 600)
+        ClientSize = New Size(1197, 600)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox3)
         Controls.Add(GroupBox1)
@@ -277,4 +320,8 @@ Partial Class Employee_Menu
     Friend WithEvents Label6 As Label
     Friend WithEvents rtbStock As RichTextBox
     Friend WithEvents butSearchSales As Button
+    Friend WithEvents butSearchSlime As Button
+    Friend WithEvents butSearchDelivery As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents rtbDeliveries As RichTextBox
 End Class
