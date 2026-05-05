@@ -194,14 +194,125 @@ Public Class Employee_Menu
 
     Private Sub butUpdateStock_Click(sender As Object, e As EventArgs) Handles butUpdateStock.Click
 
-        Dim UpdateStock As System.IO.StreamWriter
-        Dim NewStock As String = rtbStock.Text
+        'asks if info has already been editied via rich textbox
+        Dim ask As String
+        ask = InputBox("To edit current stock, edit text through the textbox:" & vbCrLf & "Have you already edited via textbox and wish to save?" & vbCrLf & "Enter Y to confirm", 48)
 
-        UpdateStock = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Stock.txt"), True)
-        UpdateStock.WriteLine()
-        UpdateStock.Close()
+        If ask = "Y" Or ask = "y" Then
 
-        MsgBox("did that work")
+            'declaring variables
+            Dim UpdateStock As System.IO.StreamWriter
+            Dim NewStock As String = rtbStock.Text
+            Dim UpdateStock2 As System.IO.StreamWriter
+
+            'saving into stock updater place - way to save whole array without appending onto pre-existing stock (replace saving code)
+            UpdateStock = My.Computer.FileSystem.OpenTextFileWriter(Dir$("StockUpdater.txt"), True)
+            UpdateStock.WriteLine(NewStock)
+            UpdateStock.Close()
+
+            'deleting whats in current stock
+            Dim DeletePrev As System.IO.StreamWriter
+
+            DeletePrev = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Stock.txt"), False)
+            DeletePrev.WriteLine()
+            DeletePrev.Close()
+
+            'now saving what is help in stock updater into main stock file
+            rtbStock.LoadFile(Dir$("StockUpdater.txt"), RichTextBoxStreamType.PlainText)
+
+            UpdateStock2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Stock.txt"), True)
+            UpdateStock2.WriteLine(NewStock)
+            UpdateStock2.Close()
+
+            'clearing stock update file now that info is in main stock file
+            Dim DeletePrev2 As System.IO.StreamWriter
+
+            DeletePrev2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("StockUpdater.txt"), False)
+            DeletePrev2.WriteLine()
+            DeletePrev2.Close()
+
+            MsgBox("Stock Updated!")
+            Exit Sub
+
+        ElseIf ask <> "Y" Or ask <> "y" Then
+            MsgBox("Stock Unedited", 48)
+            Exit Sub
+        End If
+
+    End Sub
+
+    Private Sub butSearchStock_Click(sender As Object, e As EventArgs) Handles butSearchStock.Click
+
+        Dim input As String
+        Dim correctInput As Boolean = False
+        Dim FullMessage As String
+
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 4) As String
+        Dim line As String
+
+        input = InputBox("What do you want to search for:")
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("Stock.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(0) = input Then
+                correctInput = True
+
+                FullMessage = FullMessage + parts(0) + vbCrLf
+            End If
+
+            Try
+                If parts(1) = input Then
+                    correctInput = True
+
+                    FullMessage = FullMessage + parts(1) + vbCrLf
+                End If
+            Catch
+                'not slot
+            End Try
+
+            Try
+                If parts(2) = input Then
+                    correctInput = True
+
+                    FullMessage = FullMessage + parts(2) + vbCrLf
+                End If
+            Catch
+                'not slot
+            End Try
+
+            Try
+                If parts(3) = input Then
+                    correctInput = True
+
+                    FullMessage = FullMessage + parts(3) + vbCrLf
+                End If
+            Catch
+                'not slot
+            End Try
+
+            Try
+                If parts(4) = input Then
+                    correctInput = True
+
+                    FullMessage = FullMessage + parts(4) + vbCrLf
+                End If
+            Catch
+                'not slot
+            End Try
+
+        Loop Until (file.EndOfStream)
+
+        If correctInput = False Then
+            MsgBox("Not Found", 48)
+            Exit Sub
+        End If
+
+        MsgBox("Heres how many there is of this Item:" & vbCrLf & FullMessage)
 
     End Sub
 End Class
