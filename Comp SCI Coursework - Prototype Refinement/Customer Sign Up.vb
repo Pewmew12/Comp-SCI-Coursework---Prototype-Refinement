@@ -23,7 +23,7 @@
         Dim DoB As Date = dtpDoB.Text
 
         Dim Email As String = txtEmail.Text
-        Dim PhoneNum As String = txtPhoneNum.Text 'due to the 0
+        Dim PhoneNum As Integer = txtPhoneNum.Text
 
         Dim Street As String = txtStreet.Text
         Dim Town As String = txtTown.Text

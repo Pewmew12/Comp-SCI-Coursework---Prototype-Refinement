@@ -33,6 +33,12 @@ Public Class Admin_Menu
 
         rtbEmployeePayroll.LoadFile(Dir$("EmployeePayroll.txt"), RichTextBoxStreamType.PlainText)
 
+        rtbViewSlimes.Visible = False
+        rtbViewSlimeRecipies.Visible = False
+
+        rtbViewSlimes.LoadFile(Dir$("Slimes.txt"), RichTextBoxStreamType.PlainText)
+        rtbViewSlimeRecipies.LoadFile(Dir$("SlimeRecipies.txt"), RichTextBoxStreamType.PlainText)
+
         'Employee ID's for comboBox
         Dim ComboFile As System.IO.StreamReader
         Dim ComboLine As String
@@ -440,6 +446,19 @@ Public Class Admin_Menu
         SlimeLimit.Close()
         MsgBox("New Slime Limit Set!")
         lblActivatorLimit.Text = "Current Activator Limit: " & NewLimitActi
+
+    End Sub
+
+    Private Sub butViewSlimes_Click(sender As Object, e As EventArgs) Handles butViewSlimes.Click
+
+        MsgBox("Heres the Current Slimes:" & vbCrLf & rtbViewSlimes.Text & vbCrLf & "And their Ingredients:" & vbCrLf & rtbViewSlimeRecipies.Text)
+
+    End Sub
+
+    Private Sub butOverview_Click(sender As Object, e As EventArgs) Handles butOverview.Click
+
+        Overview.Show()
+        Me.Close()
 
     End Sub
 End Class

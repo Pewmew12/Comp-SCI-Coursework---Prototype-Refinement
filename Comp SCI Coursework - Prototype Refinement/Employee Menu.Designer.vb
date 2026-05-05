@@ -46,6 +46,7 @@ Partial Class Employee_Menu
         dtpDateDelivered = New DateTimePicker()
         butUpdateDelivery = New Button()
         txtEmployeeID = New TextBox()
+        butConfirmOrder = New Button()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox4.SuspendLayout()
@@ -54,6 +55,7 @@ Partial Class Employee_Menu
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(butConfirmOrder)
         GroupBox1.Controls.Add(butSearchSales)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(rtbSales)
@@ -68,7 +70,7 @@ Partial Class Employee_Menu
         ' 
         ' butSearchSales
         ' 
-        butSearchSales.Location = New Point(161, 172)
+        butSearchSales.Location = New Point(42, 173)
         butSearchSales.Margin = New Padding(3, 2, 3, 2)
         butSearchSales.Name = "butSearchSales"
         butSearchSales.Size = New Size(136, 22)
@@ -300,6 +302,15 @@ Partial Class Employee_Menu
         txtEmployeeID.Size = New Size(162, 23)
         txtEmployeeID.TabIndex = 0
         ' 
+        ' butConfirmOrder
+        ' 
+        butConfirmOrder.Location = New Point(272, 172)
+        butConfirmOrder.Name = "butConfirmOrder"
+        butConfirmOrder.Size = New Size(136, 23)
+        butConfirmOrder.TabIndex = 5
+        butConfirmOrder.Text = "Confirm Order"
+        butConfirmOrder.UseVisualStyleBackColor = True
+        ' 
         ' Employee_Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -344,4 +355,5 @@ Partial Class Employee_Menu
     Friend WithEvents butSearchDelivery As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents rtbDeliveries As RichTextBox
+    Friend WithEvents butConfirmOrder As Button
 End Class

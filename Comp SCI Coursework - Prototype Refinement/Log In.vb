@@ -164,7 +164,7 @@
     Private Sub lblForgotID_Click(sender As Object, e As EventArgs) Handles lblForgotID.Click
 
         'temporary code for now
-        MsgBox("lol sucks to suck")
+        MsgBox("bro")
 
     End Sub
 End Class

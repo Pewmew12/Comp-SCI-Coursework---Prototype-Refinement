@@ -315,7 +315,7 @@ Public Class Customer_Menu
     Private Sub lblForgotID_Click(sender As Object, e As EventArgs) Handles lblForgotID.Click
 
         'temporary code for now
-        MsgBox("lol sucks to suck")
+        MsgBox("bro how")
 
     End Sub
 

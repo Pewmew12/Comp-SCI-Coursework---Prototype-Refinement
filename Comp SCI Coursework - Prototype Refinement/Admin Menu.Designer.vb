@@ -54,6 +54,8 @@ Partial Class Admin_Menu
         butOverview = New Button()
         GroupBox3 = New GroupBox()
         GroupBox4 = New GroupBox()
+        rtbViewSlimeRecipies = New RichTextBox()
+        rtbViewSlimes = New RichTextBox()
         lblActivatorLimit = New Label()
         lblSlimeLimit = New Label()
         butViewSlimes = New Button()
@@ -82,133 +84,122 @@ Partial Class Admin_Menu
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Label7)
         GroupBox1.Controls.Add(Label3)
-        GroupBox1.Location = New Point(14, 17)
-        GroupBox1.Margin = New Padding(3, 4, 3, 4)
+        GroupBox1.Location = New Point(12, 13)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Padding = New Padding(3, 4, 3, 4)
-        GroupBox1.Size = New Size(422, 345)
+        GroupBox1.Size = New Size(369, 259)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Add Employee"
         ' 
         ' butAddEmployee
         ' 
-        butAddEmployee.Location = New Point(110, 287)
-        butAddEmployee.Margin = New Padding(3, 4, 3, 4)
+        butAddEmployee.Location = New Point(96, 215)
         butAddEmployee.Name = "butAddEmployee"
-        butAddEmployee.Size = New Size(207, 31)
+        butAddEmployee.Size = New Size(181, 23)
         butAddEmployee.TabIndex = 9
         butAddEmployee.Text = "Save and Add Employee"
         butAddEmployee.UseVisualStyleBackColor = True
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(145, 195)
-        txtEmail.Margin = New Padding(3, 4, 3, 4)
+        txtEmail.Location = New Point(127, 146)
         txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(228, 27)
+        txtEmail.Size = New Size(200, 23)
         txtEmail.TabIndex = 9
         ' 
         ' txtFName
         ' 
-        txtFName.Location = New Point(145, 53)
-        txtFName.Margin = New Padding(3, 4, 3, 4)
+        txtFName.Location = New Point(127, 40)
         txtFName.Name = "txtFName"
-        txtFName.Size = New Size(228, 27)
+        txtFName.Size = New Size(200, 23)
         txtFName.TabIndex = 10
         ' 
         ' txtSName
         ' 
-        txtSName.Location = New Point(145, 92)
-        txtSName.Margin = New Padding(3, 4, 3, 4)
+        txtSName.Location = New Point(127, 69)
         txtSName.Name = "txtSName"
-        txtSName.Size = New Size(228, 27)
+        txtSName.Size = New Size(200, 23)
         txtSName.TabIndex = 11
         ' 
         ' txtPhoneNumber
         ' 
-        txtPhoneNumber.Location = New Point(145, 233)
-        txtPhoneNumber.Margin = New Padding(3, 4, 3, 4)
+        txtPhoneNumber.Location = New Point(127, 175)
         txtPhoneNumber.Name = "txtPhoneNumber"
-        txtPhoneNumber.Size = New Size(228, 27)
+        txtPhoneNumber.Size = New Size(200, 23)
         txtPhoneNumber.TabIndex = 12
         ' 
         ' dtpDoB
         ' 
-        dtpDoB.Location = New Point(145, 131)
-        dtpDoB.Margin = New Padding(3, 4, 3, 4)
+        dtpDoB.Location = New Point(127, 98)
         dtpDoB.Name = "dtpDoB"
-        dtpDoB.Size = New Size(228, 27)
+        dtpDoB.Size = New Size(200, 23)
         dtpDoB.TabIndex = 9
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(97, 199)
+        Label4.Location = New Point(85, 149)
         Label4.Name = "Label4"
-        Label4.Size = New Size(46, 20)
+        Label4.Size = New Size(36, 15)
         Label4.TabIndex = 10
         Label4.Text = "Email"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(55, 139)
+        Label5.Location = New Point(48, 104)
         Label5.Name = "Label5"
-        Label5.Size = New Size(94, 20)
+        Label5.Size = New Size(73, 15)
         Label5.TabIndex = 11
         Label5.Text = "Date of Birth"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(38, 237)
+        Label6.Location = New Point(33, 178)
         Label6.Name = "Label6"
-        Label6.Size = New Size(108, 20)
+        Label6.Size = New Size(88, 15)
         Label6.TabIndex = 12
         Label6.Text = "Phone Number"
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(77, 96)
+        Label7.Location = New Point(67, 72)
         Label7.Name = "Label7"
-        Label7.Size = New Size(67, 20)
+        Label7.Size = New Size(54, 15)
         Label7.TabIndex = 13
         Label7.Text = "Surname"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(65, 57)
+        Label3.Location = New Point(57, 43)
         Label3.Name = "Label3"
-        Label3.Size = New Size(80, 20)
+        Label3.Size = New Size(64, 15)
         Label3.TabIndex = 9
         Label3.Text = "First Name"
         ' 
         ' rtbCurrentEmployees
         ' 
-        rtbCurrentEmployees.Location = New Point(442, 36)
-        rtbCurrentEmployees.Margin = New Padding(3, 4, 3, 4)
+        rtbCurrentEmployees.Location = New Point(387, 27)
         rtbCurrentEmployees.Name = "rtbCurrentEmployees"
-        rtbCurrentEmployees.Size = New Size(748, 148)
+        rtbCurrentEmployees.Size = New Size(655, 112)
         rtbCurrentEmployees.TabIndex = 1
         rtbCurrentEmployees.Text = ""
         ' 
         ' txtPayFrequency
         ' 
-        txtPayFrequency.Location = New Point(145, 183)
-        txtPayFrequency.Margin = New Padding(3, 4, 3, 4)
+        txtPayFrequency.Location = New Point(127, 137)
         txtPayFrequency.Name = "txtPayFrequency"
-        txtPayFrequency.Size = New Size(228, 27)
+        txtPayFrequency.Size = New Size(200, 23)
         txtPayFrequency.TabIndex = 2
         ' 
         ' butDeleteSlime
         ' 
-        butDeleteSlime.Location = New Point(31, 62)
-        butDeleteSlime.Margin = New Padding(3, 4, 3, 4)
+        butDeleteSlime.Location = New Point(27, 46)
         butDeleteSlime.Name = "butDeleteSlime"
-        butDeleteSlime.Size = New Size(207, 31)
+        butDeleteSlime.Size = New Size(181, 23)
         butDeleteSlime.TabIndex = 3
         butDeleteSlime.Text = "Delete Slime"
         butDeleteSlime.UseVisualStyleBackColor = True
@@ -216,9 +207,9 @@ Partial Class Admin_Menu
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(442, 12)
+        Label2.Location = New Point(387, 9)
         Label2.Name = "Label2"
-        Label2.Size = New Size(136, 20)
+        Label2.Size = New Size(110, 15)
         Label2.TabIndex = 5
         Label2.Text = "Current Employees:"
         ' 
@@ -233,11 +224,9 @@ Partial Class Admin_Menu
         GroupBox2.Controls.Add(txtBank)
         GroupBox2.Controls.Add(txtPayFrequency)
         GroupBox2.Controls.Add(txtPayAmount)
-        GroupBox2.Location = New Point(14, 371)
-        GroupBox2.Margin = New Padding(3, 4, 3, 4)
+        GroupBox2.Location = New Point(12, 278)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Padding = New Padding(3, 4, 3, 4)
-        GroupBox2.Size = New Size(422, 285)
+        GroupBox2.Size = New Size(369, 214)
         GroupBox2.TabIndex = 6
         GroupBox2.TabStop = False
         GroupBox2.Text = "Edit/Add Payroll"
@@ -245,27 +234,27 @@ Partial Class Admin_Menu
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Location = New Point(23, 187)
+        Label11.Location = New Point(20, 140)
         Label11.Name = "Label11"
-        Label11.Size = New Size(124, 20)
+        Label11.Size = New Size(101, 15)
         Label11.TabIndex = 14
         Label11.Text = "Payroll Frequency"
         ' 
         ' Label10
         ' 
         Label10.AutoSize = True
-        Label10.Location = New Point(35, 148)
+        Label10.Location = New Point(31, 111)
         Label10.Name = "Label10"
-        Label10.Size = New Size(110, 20)
+        Label10.Size = New Size(90, 15)
         Label10.TabIndex = 13
         Label10.Text = "Payroll Amount"
         ' 
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Location = New Point(97, 88)
+        Label9.Location = New Point(85, 66)
         Label9.Name = "Label9"
-        Label9.Size = New Size(44, 20)
+        Label9.Size = New Size(36, 15)
         Label9.TabIndex = 12
         Label9.Tag = ""
         Label9.Text = "Bank:"
@@ -273,92 +262,83 @@ Partial Class Admin_Menu
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(58, 49)
+        Label8.Location = New Point(51, 37)
         Label8.Name = "Label8"
-        Label8.Size = New Size(90, 20)
+        Label8.Size = New Size(70, 15)
         Label8.TabIndex = 9
         Label8.Text = "EmployeeID"
         ' 
         ' txtEmployeeID
         ' 
-        txtEmployeeID.Location = New Point(145, 45)
-        txtEmployeeID.Margin = New Padding(3, 4, 3, 4)
+        txtEmployeeID.Location = New Point(127, 34)
         txtEmployeeID.Name = "txtEmployeeID"
-        txtEmployeeID.Size = New Size(228, 27)
+        txtEmployeeID.Size = New Size(200, 23)
         txtEmployeeID.TabIndex = 9
         ' 
         ' butSavePay
         ' 
-        butSavePay.Location = New Point(110, 233)
-        butSavePay.Margin = New Padding(3, 4, 3, 4)
+        butSavePay.Location = New Point(96, 175)
         butSavePay.Name = "butSavePay"
-        butSavePay.Size = New Size(207, 31)
+        butSavePay.Size = New Size(181, 23)
         butSavePay.TabIndex = 9
         butSavePay.Text = "Save Payroll Details"
         butSavePay.UseVisualStyleBackColor = True
         ' 
         ' txtBank
         ' 
-        txtBank.Location = New Point(145, 84)
-        txtBank.Margin = New Padding(3, 4, 3, 4)
+        txtBank.Location = New Point(127, 63)
         txtBank.Name = "txtBank"
-        txtBank.Size = New Size(228, 27)
+        txtBank.Size = New Size(200, 23)
         txtBank.TabIndex = 10
         ' 
         ' txtPayAmount
         ' 
-        txtPayAmount.Location = New Point(145, 144)
-        txtPayAmount.Margin = New Padding(3, 4, 3, 4)
+        txtPayAmount.Location = New Point(127, 108)
         txtPayAmount.Name = "txtPayAmount"
-        txtPayAmount.Size = New Size(228, 27)
+        txtPayAmount.Size = New Size(200, 23)
         txtPayAmount.TabIndex = 11
         ' 
         ' butSearchEmployee
         ' 
-        butSearchEmployee.Location = New Point(983, 363)
-        butSearchEmployee.Margin = New Padding(3, 4, 3, 4)
+        butSearchEmployee.Location = New Point(860, 272)
         butSearchEmployee.Name = "butSearchEmployee"
-        butSearchEmployee.Size = New Size(207, 31)
+        butSearchEmployee.Size = New Size(181, 23)
         butSearchEmployee.TabIndex = 7
         butSearchEmployee.Text = "Search Employees/Payrolls"
         butSearchEmployee.UseVisualStyleBackColor = True
         ' 
         ' butDeleteEmployee
         ' 
-        butDeleteEmployee.Location = New Point(735, 363)
-        butDeleteEmployee.Margin = New Padding(3, 4, 3, 4)
+        butDeleteEmployee.Location = New Point(643, 272)
         butDeleteEmployee.Name = "butDeleteEmployee"
-        butDeleteEmployee.Size = New Size(206, 31)
+        butDeleteEmployee.Size = New Size(180, 23)
         butDeleteEmployee.TabIndex = 8
         butDeleteEmployee.Text = "Delete Employees/Payroll"
         butDeleteEmployee.UseVisualStyleBackColor = True
         ' 
         ' butNewSlime
         ' 
-        butNewSlime.Location = New Point(30, 24)
-        butNewSlime.Margin = New Padding(3, 4, 3, 4)
+        butNewSlime.Location = New Point(26, 18)
         butNewSlime.Name = "butNewSlime"
-        butNewSlime.Size = New Size(208, 31)
+        butNewSlime.Size = New Size(182, 23)
         butNewSlime.TabIndex = 9
         butNewSlime.Text = "Enter New Slime"
         butNewSlime.UseVisualStyleBackColor = True
         ' 
         ' butEmployeeMenu
         ' 
-        butEmployeeMenu.Location = New Point(23, 67)
-        butEmployeeMenu.Margin = New Padding(3, 4, 3, 4)
+        butEmployeeMenu.Location = New Point(20, 50)
         butEmployeeMenu.Name = "butEmployeeMenu"
-        butEmployeeMenu.Size = New Size(207, 31)
+        butEmployeeMenu.Size = New Size(181, 23)
         butEmployeeMenu.TabIndex = 10
         butEmployeeMenu.Text = "Enter Employee Menu"
         butEmployeeMenu.UseVisualStyleBackColor = True
         ' 
         ' butOverview
         ' 
-        butOverview.Location = New Point(22, 28)
-        butOverview.Margin = New Padding(3, 4, 3, 4)
+        butOverview.Location = New Point(19, 21)
         butOverview.Name = "butOverview"
-        butOverview.Size = New Size(208, 31)
+        butOverview.Size = New Size(182, 23)
         butOverview.TabIndex = 11
         butOverview.Text = "Overview All"
         butOverview.UseVisualStyleBackColor = True
@@ -367,17 +347,17 @@ Partial Class Admin_Menu
         ' 
         GroupBox3.Controls.Add(butOverview)
         GroupBox3.Controls.Add(butEmployeeMenu)
-        GroupBox3.Location = New Point(442, 482)
-        GroupBox3.Margin = New Padding(3, 4, 3, 4)
+        GroupBox3.Location = New Point(387, 362)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Padding = New Padding(3, 4, 3, 4)
-        GroupBox3.Size = New Size(252, 116)
+        GroupBox3.Size = New Size(220, 87)
         GroupBox3.TabIndex = 12
         GroupBox3.TabStop = False
         GroupBox3.Text = "Overview"
         ' 
         ' GroupBox4
         ' 
+        GroupBox4.Controls.Add(rtbViewSlimeRecipies)
+        GroupBox4.Controls.Add(rtbViewSlimes)
         GroupBox4.Controls.Add(lblActivatorLimit)
         GroupBox4.Controls.Add(lblSlimeLimit)
         GroupBox4.Controls.Add(butViewSlimes)
@@ -385,100 +365,117 @@ Partial Class Admin_Menu
         GroupBox4.Controls.Add(butActivatorLimit)
         GroupBox4.Controls.Add(butNewSlime)
         GroupBox4.Controls.Add(butDeleteSlime)
-        GroupBox4.Location = New Point(700, 420)
-        GroupBox4.Margin = New Padding(3, 4, 3, 4)
+        GroupBox4.Location = New Point(612, 315)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Padding = New Padding(3, 4, 3, 4)
-        GroupBox4.Size = New Size(490, 236)
+        GroupBox4.Size = New Size(429, 177)
         GroupBox4.TabIndex = 13
         GroupBox4.TabStop = False
         GroupBox4.Text = "Slimes"
         ' 
+        ' rtbViewSlimeRecipies
+        ' 
+        rtbViewSlimeRecipies.Location = New Point(231, 71)
+        rtbViewSlimeRecipies.Name = "rtbViewSlimeRecipies"
+        rtbViewSlimeRecipies.Size = New Size(181, 23)
+        rtbViewSlimeRecipies.TabIndex = 16
+        rtbViewSlimeRecipies.Text = ""
+        ' 
+        ' rtbViewSlimes
+        ' 
+        rtbViewSlimes.Location = New Point(231, 46)
+        rtbViewSlimes.Name = "rtbViewSlimes"
+        rtbViewSlimes.Size = New Size(181, 23)
+        rtbViewSlimes.TabIndex = 15
+        rtbViewSlimes.Text = ""
+        ' 
         ' lblActivatorLimit
         ' 
         lblActivatorLimit.AutoSize = True
-        lblActivatorLimit.Location = New Point(264, 181)
+        lblActivatorLimit.Location = New Point(231, 136)
         lblActivatorLimit.Name = "lblActivatorLimit"
-        lblActivatorLimit.Size = New Size(173, 20)
+        lblActivatorLimit.Size = New Size(140, 15)
         lblActivatorLimit.TabIndex = 14
         lblActivatorLimit.Text = "Current Activator Limit: 0"
         ' 
         ' lblSlimeLimit
         ' 
         lblSlimeLimit.AutoSize = True
-        lblSlimeLimit.Location = New Point(264, 142)
+        lblSlimeLimit.Location = New Point(231, 106)
         lblSlimeLimit.Name = "lblSlimeLimit"
-        lblSlimeLimit.Size = New Size(150, 20)
+        lblSlimeLimit.Size = New Size(121, 15)
         lblSlimeLimit.TabIndex = 13
         lblSlimeLimit.Text = "Current Slime Limit: 0"
         ' 
         ' butViewSlimes
         ' 
-        butViewSlimes.Location = New Point(264, 25)
+        butViewSlimes.Location = New Point(231, 19)
+        butViewSlimes.Margin = New Padding(3, 2, 3, 2)
         butViewSlimes.Name = "butViewSlimes"
-        butViewSlimes.Size = New Size(207, 29)
+        butViewSlimes.Size = New Size(181, 22)
         butViewSlimes.TabIndex = 12
         butViewSlimes.Text = "View Current Slimes"
         butViewSlimes.UseVisualStyleBackColor = True
         ' 
         ' butSlimeLimit
         ' 
-        butSlimeLimit.Location = New Point(31, 138)
+        butSlimeLimit.Location = New Point(27, 104)
+        butSlimeLimit.Margin = New Padding(3, 2, 3, 2)
         butSlimeLimit.Name = "butSlimeLimit"
-        butSlimeLimit.Size = New Size(207, 29)
+        butSlimeLimit.Size = New Size(181, 22)
         butSlimeLimit.TabIndex = 11
         butSlimeLimit.Text = "Change Slime Buying Limit"
         butSlimeLimit.UseVisualStyleBackColor = True
         ' 
         ' butActivatorLimit
         ' 
-        butActivatorLimit.Location = New Point(21, 177)
+        butActivatorLimit.Location = New Point(18, 133)
+        butActivatorLimit.Margin = New Padding(3, 2, 3, 2)
         butActivatorLimit.Name = "butActivatorLimit"
-        butActivatorLimit.Size = New Size(228, 29)
+        butActivatorLimit.Size = New Size(200, 22)
         butActivatorLimit.TabIndex = 10
         butActivatorLimit.Text = "Change Activator Buying Limit"
         butActivatorLimit.UseVisualStyleBackColor = True
         ' 
         ' rtbEmployeePayroll
         ' 
-        rtbEmployeePayroll.Location = New Point(442, 212)
-        rtbEmployeePayroll.Margin = New Padding(3, 4, 3, 4)
+        rtbEmployeePayroll.Location = New Point(387, 159)
         rtbEmployeePayroll.Name = "rtbEmployeePayroll"
-        rtbEmployeePayroll.Size = New Size(748, 144)
+        rtbEmployeePayroll.Size = New Size(655, 109)
         rtbEmployeePayroll.TabIndex = 14
         rtbEmployeePayroll.Text = ""
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(442, 188)
+        Label1.Location = New Point(387, 141)
         Label1.Name = "Label1"
-        Label1.Size = New Size(126, 20)
+        Label1.Size = New Size(101, 15)
         Label1.TabIndex = 15
         Label1.Text = "Employee Payroll:"
         ' 
         ' comEmployeeID
         ' 
         comEmployeeID.FormattingEnabled = True
-        comEmployeeID.Location = New Point(578, 365)
+        comEmployeeID.Location = New Point(506, 274)
+        comEmployeeID.Margin = New Padding(3, 2, 3, 2)
         comEmployeeID.Name = "comEmployeeID"
-        comEmployeeID.Size = New Size(151, 28)
+        comEmployeeID.Size = New Size(133, 23)
         comEmployeeID.TabIndex = 16
         ' 
         ' Label12
         ' 
         Label12.AutoSize = True
-        Label12.Location = New Point(442, 366)
+        Label12.Location = New Point(387, 274)
         Label12.Name = "Label12"
-        Label12.Size = New Size(135, 20)
+        Label12.Size = New Size(104, 15)
         Label12.TabIndex = 17
         Label12.Text = "Select ID to delete:"
         ' 
         ' Admin_Menu
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1202, 671)
+        ClientSize = New Size(1052, 503)
         Controls.Add(Label12)
         Controls.Add(comEmployeeID)
         Controls.Add(Label1)
@@ -491,7 +488,6 @@ Partial Class Admin_Menu
         Controls.Add(Label2)
         Controls.Add(rtbCurrentEmployees)
         Controls.Add(GroupBox1)
-        Margin = New Padding(3, 4, 3, 4)
         Name = "Admin_Menu"
         Text = "Admin_Menu"
         GroupBox1.ResumeLayout(False)
@@ -546,4 +542,6 @@ Partial Class Admin_Menu
     Friend WithEvents lblActivatorLimit As Label
     Friend WithEvents lblSlimeLimit As Label
     Friend WithEvents butViewSlimes As Button
+    Friend WithEvents rtbViewSlimeRecipies As RichTextBox
+    Friend WithEvents rtbViewSlimes As RichTextBox
 End Class
