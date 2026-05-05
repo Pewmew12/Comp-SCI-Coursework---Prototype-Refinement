@@ -58,7 +58,7 @@ Public Class Customer_Menu
             ActivatorAmountparts = ActivatorAmountline.Split(",")
 
             For index As Integer = 1 To 1
-                comSlimeAmount.Items.Add(ActivatorAmountparts(0))
+                comActivatorAmount.Items.Add(ActivatorAmountparts(0))
             Next
 
         Loop Until (ActivatorAmountfile.EndOfStream)

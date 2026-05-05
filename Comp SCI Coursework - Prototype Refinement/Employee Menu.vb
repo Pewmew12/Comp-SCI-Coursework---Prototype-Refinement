@@ -1,4 +1,6 @@
-﻿Public Class Employee_Menu
+﻿Imports System.Windows.Forms.AxHost
+
+Public Class Employee_Menu
     Private Sub Employee_Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'loads in file information
@@ -51,6 +53,26 @@
 
         If EmployeeCorrectID = True Then
             'save txt supply
+            Dim UpdateDelivery As System.IO.StreamWriter
+
+            UpdateDelivery = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Deliveries.txt"), True)
+            UpdateDelivery.WriteLine(DateDelivered & "," & EmployeeID & "," & SupplyDelivery)
+            UpdateDelivery.Close()
+
+            Dim AddToStock As System.IO.StreamWriter
+
+            AddToStock = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Stock.txt"), True)
+            AddToStock.WriteLine(SupplyDelivery)
+            AddToStock.Close()
+
+            txtSupply.Text = ""
+            txtEmployeeID.Text = ""
+
+            're-loading files so they appear after being added
+            rtbDeliveries.LoadFile(Dir$("Deliveries.txt"), RichTextBoxStreamType.PlainText)
+
+            rtbStock.LoadFile(Dir$("Stock.txt"), RichTextBoxStreamType.PlainText)
+
             MsgBox("Delivery Confirmed!")
             Exit Sub
         ElseIf EmployeeCorrectID = False Then
@@ -67,10 +89,10 @@
         Dim fullmessage As String
 
         Dim file As System.IO.StreamReader
-        Dim parts(0 To 5) As String
+        Dim parts(0 To 2) As String
         Dim line As String
 
-        input = InputBox("To search for a delivery, input date delivered:")
+        input = InputBox("To search for a delivery, input date delivered or EmployeeID:")
 
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("Deliveries.txt"))
 
@@ -78,7 +100,7 @@
             line = file.ReadLine()
             parts = line.Split(",")
 
-            If parts(1) = input Then
+            If parts(0) = input Or parts(1) = input Then
                 correct = True
 
                 fullmessage = fullmessage + line + vbCrLf
@@ -95,6 +117,91 @@
         End If
 
         MsgBox(fullmessage)
+
+    End Sub
+
+    Private Sub butSearchSales_Click(sender As Object, e As EventArgs) Handles butSearchSales.Click
+
+        Dim input As String
+        Dim correctInput As Boolean = False
+        Dim FullMessage As String
+
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 1) As String
+        Dim line As String
+
+        input = InputBox("To search sales, input Order Number:")
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerOrders.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(1) = input Then
+                correctInput = True
+
+                FullMessage = FullMessage + line + vbCrLf
+
+            End If
+
+        Loop Until (file.EndOfStream)
+
+        If correctInput = False Then
+            MsgBox("Order Number incorrect or No Orders Found", 48)
+            Exit Sub
+        End If
+
+        MsgBox(FullMessage)
+
+    End Sub
+
+    Private Sub butSearchSlime_Click(sender As Object, e As EventArgs) Handles butSearchSlime.Click
+
+        Dim input As String
+        Dim correctInput As Boolean = False
+        Dim FullMessage As String
+
+        Dim file As System.IO.StreamReader
+        Dim parts(0 To 1) As String
+        Dim line As String
+
+        input = InputBox("To search Slimes, input Slime Number:")
+
+        file = My.Computer.FileSystem.OpenTextFileReader(Dir("SlimeRecipies.txt"))
+
+        Do
+            line = file.ReadLine()
+            parts = line.Split(",")
+
+            If parts(0) = input Then
+                correctInput = True
+
+                FullMessage = FullMessage + line + vbCrLf
+
+            End If
+
+        Loop Until (file.EndOfStream)
+
+        If correctInput = False Then
+            MsgBox("Slime Number incorrect or Not Found", 48)
+            Exit Sub
+        End If
+
+        MsgBox(FullMessage)
+
+    End Sub
+
+    Private Sub butUpdateStock_Click(sender As Object, e As EventArgs) Handles butUpdateStock.Click
+
+        Dim UpdateStock As System.IO.StreamWriter
+        Dim NewStock As String = rtbStock.Text
+
+        UpdateStock = My.Computer.FileSystem.OpenTextFileWriter(Dir$("Stock.txt"), True)
+        UpdateStock.WriteLine()
+        UpdateStock.Close()
+
+        MsgBox("did that work")
 
     End Sub
 End Class
