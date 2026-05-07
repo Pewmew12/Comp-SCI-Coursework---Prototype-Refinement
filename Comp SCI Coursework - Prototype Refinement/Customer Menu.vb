@@ -167,6 +167,11 @@ Public Class Customer_Menu
             Exit Sub
         End If
 
+        If comActivatorAmount.Visible = True And comActivatorAmount.Text = "" Then
+            MsgBox("Please enter an amount of activator", 48)
+            Exit Sub
+        End If
+
         'combo box checking
         slimes = My.Computer.FileSystem.OpenTextFileReader(Dir("Slimes.txt"))
         Dim found As Boolean = False
@@ -191,18 +196,47 @@ Public Class Customer_Menu
         End If
 
         'change to match portential changing number based combo box (public variable or file)
-        If comSlimeAmount.Visible = True And comSlimeAmount.Text <> "1" And comSlimeAmount.Text <> "2" And comSlimeAmount.Text <> "3" And comSlimeAmount.Text <> "4" And comSlimeAmount.Text <> "5" Then
+        'now does!
+        Dim slimeAmountCheck As System.IO.StreamReader
+        slimeAmountCheck = My.Computer.FileSystem.OpenTextFileReader(Dir("SlimeLimit.txt"))
+        Dim found2 As Boolean = False
+        Dim line2 As String
+
+
+        Do
+            line2 = slimeAmountCheck.ReadLine()
+
+            If comSlimeAmount.Text = line2 Then
+                found2 = True
+            End If
+
+        Loop Until (slimeAmountCheck.EndOfStream)
+
+        slimeAmountCheck.Close()
+
+        If comSlimeAmount.Visible = True And found2 = False Then
             MsgBox("Please select a valid amount of slime", 48)
             Exit Sub
         End If
 
-        If comActivatorAmount.Visible = True And comActivatorAmount.Text = "" Then
-            MsgBox("Please enter an amount of activator", 48)
-            Exit Sub
-        End If
+        Dim ActivatorAmountCheck As System.IO.StreamReader
+        ActivatorAmountCheck = My.Computer.FileSystem.OpenTextFileReader(Dir("ActivatorLimit.txt"))
+        Dim found3 As Boolean = False
+        Dim line3 As String
 
-        'change to match portential changing number based combo box (public variable or file)
-        If comActivatorAmount.Visible = True And comActivatorAmount.Text <> "1" And comActivatorAmount.Text <> "2" And comActivatorAmount.Text <> "3" And comActivatorAmount.Text <> "4" And comActivatorAmount.Text <> "5" Then
+
+        Do
+            line3 = ActivatorAmountCheck.ReadLine()
+
+            If comActivatorAmount.Text = line3 Then
+                found3 = True
+            End If
+
+        Loop Until (ActivatorAmountCheck.EndOfStream)
+
+        ActivatorAmountCheck.Close()
+
+        If comActivatorAmount.Visible = True And found3 = False Then
             MsgBox("Please select a valid amount of activator", 48)
             Exit Sub
         End If

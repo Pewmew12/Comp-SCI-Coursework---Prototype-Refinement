@@ -23,7 +23,7 @@
         Dim DoB As Date = dtpDoB.Text
 
         Dim Email As String = txtEmail.Text
-        Dim PhoneNum As Integer = txtPhoneNum.Text
+        Dim PhoneNum As String = txtPhoneNum.Text
 
         Dim Street As String = txtStreet.Text
         Dim Town As String = txtTown.Text
@@ -69,7 +69,7 @@
         End If
 
         'Range check for postcode, incase they include/exclude the space
-        If Len(Postcode) < 6 > 7 Then
+        If Len(Postcode) < 6 Or Len(Postcode) > 7 Then
             MsgBox("Please enter a valid postcode", 48)
             Exit Sub
         End If
