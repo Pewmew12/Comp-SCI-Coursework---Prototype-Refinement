@@ -23,6 +23,7 @@ Partial Class Employee_Menu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         GroupBox1 = New GroupBox()
+        butConfirmOrder = New Button()
         butSearchSales = New Button()
         Label1 = New Label()
         rtbSales = New RichTextBox()
@@ -46,7 +47,6 @@ Partial Class Employee_Menu
         dtpDateDelivered = New DateTimePicker()
         butUpdateDelivery = New Button()
         txtEmployeeID = New TextBox()
-        butConfirmOrder = New Button()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox4.SuspendLayout()
@@ -67,6 +67,15 @@ Partial Class Employee_Menu
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Sales"
+        ' 
+        ' butConfirmOrder
+        ' 
+        butConfirmOrder.Location = New Point(272, 172)
+        butConfirmOrder.Name = "butConfirmOrder"
+        butConfirmOrder.Size = New Size(136, 23)
+        butConfirmOrder.TabIndex = 5
+        butConfirmOrder.Text = "Confirm Order"
+        butConfirmOrder.UseVisualStyleBackColor = True
         ' 
         ' butSearchSales
         ' 
@@ -301,15 +310,6 @@ Partial Class Employee_Menu
         txtEmployeeID.Name = "txtEmployeeID"
         txtEmployeeID.Size = New Size(162, 23)
         txtEmployeeID.TabIndex = 0
-        ' 
-        ' butConfirmOrder
-        ' 
-        butConfirmOrder.Location = New Point(272, 172)
-        butConfirmOrder.Name = "butConfirmOrder"
-        butConfirmOrder.Size = New Size(136, 23)
-        butConfirmOrder.TabIndex = 5
-        butConfirmOrder.Text = "Confirm Order"
-        butConfirmOrder.UseVisualStyleBackColor = True
         ' 
         ' Employee_Menu
         ' 
