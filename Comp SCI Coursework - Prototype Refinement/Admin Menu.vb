@@ -218,7 +218,7 @@ Public Class Admin_Menu
             MsgBox("Please enter Employee's ID", 48)
             Exit Sub
         ElseIf txtBank.Text = "" Then
-            MsgBox("Please enter Employee's bike", 48)
+            MsgBox("Please enter Employee's bank", 48)
             Exit Sub
         ElseIf txtPayAmount.Text = "" Then
             MsgBox("Please enter Payroll amount", 48)
@@ -380,6 +380,9 @@ Public Class Admin_Menu
             NewRecipie.WriteLine("Slime" & SlimeID & "," & SlimeRecipie)
             NewRecipie.Close()
 
+            rtbViewSlimes.LoadFile(Dir$("Slimes.txt"), RichTextBoxStreamType.PlainText)
+            rtbViewSlimeRecipies.LoadFile(Dir$("SlimeRecipies.txt"), RichTextBoxStreamType.PlainText)
+
             MsgBox("Slime Added!")
             Exit Sub
         ElseIf Checker <> "Y" Or Checker <> "y" Then
@@ -428,7 +431,7 @@ Public Class Admin_Menu
             Exit Sub
         End Try
 
-        Dim SlimeLimit As System.IO.StreamWriter
+        Dim Actiimit As System.IO.StreamWriter
         Dim DeletePrev As System.IO.StreamWriter
 
         'deleting previous contents of file
@@ -437,14 +440,14 @@ Public Class Admin_Menu
         DeletePrev.Close()
 
         'saving new limit for slimes
-        SlimeLimit = My.Computer.FileSystem.OpenTextFileWriter(Dir$("ActivatorLimit.txt"), True)
+        Actiimit = My.Computer.FileSystem.OpenTextFileWriter(Dir$("ActivatorLimit.txt"), True)
 
         For index As Integer = 1 To NewLimit
-            SlimeLimit.WriteLine(index)
+            Actiimit.WriteLine(index)
         Next
 
-        SlimeLimit.Close()
-        MsgBox("New Slime Limit Set!")
+        Actiimit.Close()
+        MsgBox("New Activator Limit Set!")
         lblActivatorLimit.Text = "Current Activator Limit: " & NewLimitActi
 
     End Sub
