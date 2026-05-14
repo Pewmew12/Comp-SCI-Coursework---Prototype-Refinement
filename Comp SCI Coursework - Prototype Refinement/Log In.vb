@@ -39,7 +39,7 @@
 
         'Searching function for customers
         Dim file As System.IO.StreamReader
-        Dim parts(0 To 5) As String
+        Dim parts(0 To 6) As String
         Dim line As String
 
         Dim CorrectID As Boolean = False
@@ -66,7 +66,7 @@
 
         'Searching function for ADMIN
         Dim AdminFile As System.IO.StreamReader
-        Dim Adminparts(0 To 5) As String
+        Dim Adminparts(0 To 6) As String
         Dim Adminline As String
 
         Dim AdminCorrectID As Boolean = False
@@ -93,7 +93,7 @@
 
         'search function for employee
         Dim EmployeeFile As System.IO.StreamReader
-        Dim Employeeparts(0 To 5) As String
+        Dim Employeeparts(0 To 6) As String
         Dim Employeeline As String
 
         Dim EmployeeCorrectID As Boolean = False

@@ -39,24 +39,24 @@ Public Class Admin_Menu
         rtbViewSlimes.LoadFile(Dir$("Slimes.txt"), RichTextBoxStreamType.PlainText)
         rtbViewSlimeRecipies.LoadFile(Dir$("SlimeRecipies.txt"), RichTextBoxStreamType.PlainText)
 
-        'Employee ID's for comboBox
-        Dim ComboFile As System.IO.StreamReader
-        Dim ComboLine As String
-        Dim ComboParts(0 To 1) As String
+        'Employee ID's for comboBox - part of old deleting attempt
+        'Dim ComboFile As System.IO.StreamReader
+        'Dim ComboLine As String
+        'Dim ComboParts(0 To 1) As String
 
-        ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+        'ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
 
-        Do
-            ComboLine = ComboFile.ReadLine()
-            ComboParts = ComboLine.Split(",")
+        'Do
+        'ComboLine = ComboFile.ReadLine()
+        'ComboParts = ComboLine.Split(",")
 
-            For index As Integer = 1 To 1
-                comEmployeeID.Items.Add(ComboParts(0))
-            Next
+        'For index As Integer = 1 To 1
+        'comEmployeeID.Items.Add(ComboParts(0))
+        'Next
 
-        Loop Until (ComboFile.EndOfStream)
+        'Loop Until (ComboFile.EndOfStream)
 
-        ComboFile.Close()
+        'ComboFile.Close()
 
     End Sub
 
@@ -128,23 +128,24 @@ Public Class Admin_Menu
         're-loads the employee info into the rich textbox after saving without having to reopen form & for combo box
         rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
 
-        Dim ComboFile As System.IO.StreamReader
-        Dim ComboLine As String
-        Dim ComboParts(0 To 1) As String
+        'still part of old deleting attempt
+        'Dim ComboFile As System.IO.StreamReader
+        'Dim ComboLine As String
+        'Dim ComboParts(0 To 1) As String
 
-        ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
+        'ComboFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
 
-        Do
-            ComboLine = ComboFile.ReadLine()
-            ComboParts = ComboLine.Split(",")
+        'Do
+        'ComboLine = ComboFile.ReadLine()
+        'ComboParts = ComboLine.Split(",")
 
-            For index As Integer = 1 To 1
-                comEmployeeID.Items.Add(ComboParts(0))
-            Next
+        'For index As Integer = 1 To 1
+        'comEmployeeID.Items.Add(ComboParts(0))
+        'Next
 
-        Loop Until (ComboFile.EndOfStream)
+        'Loop Until (ComboFile.EndOfStream)
 
-        ComboFile.Close()
+        'ComboFile.Close()
 
 
     End Sub
@@ -301,7 +302,9 @@ Public Class Admin_Menu
         'Exit Sub
         'End If
 
-        'deleting a file
+
+
+        'deleting a file with combo box
         'deletes entire file currently (bruh)
         'Dim SelectedCustomerID As String = comEmployeeID.Text
 
@@ -331,7 +334,54 @@ Public Class Admin_Menu
         'delete.Close()
 
         'rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)
-        MsgBox("Fix this later")
+
+        'maybe edit the textbox first and then make it save like the edit stock function in the employee menu
+        'asks if info has already been editied via rich textbox
+
+        Dim ask As String
+        ask = InputBox("To edit current Employees, edit text through the textbox:" & vbCrLf & "Have you already edited via textbox and wish to save?" & vbCrLf & "Enter Y to confirm", 48)
+
+        If ask = "Y" Or ask = "y" Then
+
+            'declaring variables
+            Dim UpdateEmployee As IO.StreamWriter
+            Dim NewEmployee = rtbCurrentEmployees.Text
+            Dim UpdateEmployee2 As IO.StreamWriter
+
+            'saving into stock updater place - way to save whole array without appending onto pre-existing stock (replace saving code)
+            UpdateEmployee = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeUpdater.txt"), True)
+            UpdateEmployee.WriteLine(NewEmployee)
+            UpdateEmployee.Close()
+
+            'deleting whats in current stock
+            Dim DeletePrev As IO.StreamWriter
+
+            DeletePrev = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeInfo.txt"), False)
+            DeletePrev.WriteLine()
+            DeletePrev.Close()
+
+            'now saving what is help in stock updater into main stock file
+            rtbCurrentEmployees.LoadFile(Dir$("EmployeeUpdater.txt"), RichTextBoxStreamType.PlainText)
+
+            UpdateEmployee2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeInfo.txt"), True)
+            UpdateEmployee2.WriteLine(NewEmployee)
+            UpdateEmployee2.Close()
+
+            'clearing stock update file now that info is in main stock file
+            Dim DeletePrev2 As IO.StreamWriter
+
+            DeletePrev2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeUpdater.txt"), False)
+            DeletePrev2.WriteLine()
+            DeletePrev2.Close()
+
+            MsgBox("Employee Updated/Deleted!")
+            Exit Sub
+
+        ElseIf ask <> "Y" Or ask <> "y" Then
+            MsgBox("Employees Unedited", 48)
+            Exit Sub
+        End If
+
 
     End Sub
 
@@ -467,6 +517,55 @@ Public Class Admin_Menu
 
         Overview.Show()
         Me.Close()
+
+    End Sub
+
+    Private Sub butDeletePayroll_Click(sender As Object, e As EventArgs) Handles butDeletePayroll.Click
+
+        'saves edited text in rich text box to edit/delete payroll
+        Dim ask As String
+        ask = InputBox("To edit current Employees, edit text through the textbox:" & vbCrLf & "Have you already edited via textbox and wish to save?" & vbCrLf & "Enter Y to confirm", 48)
+
+        If ask = "Y" Or ask = "y" Then
+
+            'declaring variables
+            Dim UpdatePayroll As IO.StreamWriter
+            Dim NewPayroll = rtbEmployeePayroll.Text
+            Dim UpdatePayroll2 As IO.StreamWriter
+
+            'saving into stock updater place - way to save whole array without appending onto pre-existing stock (replace saving code)
+            UpdatePayroll = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeUpdater.txt"), True)
+            UpdatePayroll.WriteLine(NewPayroll)
+            UpdatePayroll.Close()
+
+            'deleting whats in current stock
+            Dim DeletePrev As IO.StreamWriter
+
+            DeletePrev = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeePayroll.txt"), False)
+            DeletePrev.WriteLine()
+            DeletePrev.Close()
+
+            'now saving what is help in stock updater into main stock file
+            rtbCurrentEmployees.LoadFile(Dir$("EmployeeUpdater.txt"), RichTextBoxStreamType.PlainText)
+
+            UpdatePayroll2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeePayroll.txt"), True)
+            UpdatePayroll2.WriteLine(NewPayroll)
+            UpdatePayroll2.Close()
+
+            'clearing stock update file now that info is in main stock file
+            Dim DeletePrev2 As IO.StreamWriter
+
+            DeletePrev2 = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeUpdater.txt"), False)
+            DeletePrev2.WriteLine()
+            DeletePrev2.Close()
+
+            MsgBox("Employee Updated/Deleted!")
+            Exit Sub
+
+        ElseIf ask <> "Y" Or ask <> "y" Then
+            MsgBox("Employees Unedited", 48)
+            Exit Sub
+        End If
 
     End Sub
 End Class

@@ -23,6 +23,8 @@ Partial Class Admin_Menu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         GroupBox1 = New GroupBox()
+        Label13 = New Label()
+        txtPassword = New TextBox()
         butAddEmployee = New Button()
         txtEmail = New TextBox()
         txtFName = New TextBox()
@@ -63,10 +65,7 @@ Partial Class Admin_Menu
         butActivatorLimit = New Button()
         rtbEmployeePayroll = New RichTextBox()
         Label1 = New Label()
-        comEmployeeID = New ComboBox()
-        Label12 = New Label()
-        txtPassword = New TextBox()
-        Label13 = New Label()
+        butDeletePayroll = New Button()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
@@ -94,6 +93,22 @@ Partial Class Admin_Menu
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Add Employee"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Location = New Point(64, 130)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(57, 15)
+        Label13.TabIndex = 15
+        Label13.Text = "Password"
+        ' 
+        ' txtPassword
+        ' 
+        txtPassword.Location = New Point(127, 127)
+        txtPassword.Name = "txtPassword"
+        txtPassword.Size = New Size(200, 23)
+        txtPassword.TabIndex = 14
         ' 
         ' butAddEmployee
         ' 
@@ -313,11 +328,11 @@ Partial Class Admin_Menu
         ' 
         ' butDeleteEmployee
         ' 
-        butDeleteEmployee.Location = New Point(643, 272)
+        butDeleteEmployee.Location = New Point(387, 274)
         butDeleteEmployee.Name = "butDeleteEmployee"
         butDeleteEmployee.Size = New Size(180, 23)
         butDeleteEmployee.TabIndex = 8
-        butDeleteEmployee.Text = "Delete Employees/Payroll"
+        butDeleteEmployee.Text = "Delete/Edit Employees"
         butDeleteEmployee.UseVisualStyleBackColor = True
         ' 
         ' butNewSlime
@@ -457,39 +472,14 @@ Partial Class Admin_Menu
         Label1.TabIndex = 15
         Label1.Text = "Employee Payroll:"
         ' 
-        ' comEmployeeID
+        ' butDeletePayroll
         ' 
-        comEmployeeID.FormattingEnabled = True
-        comEmployeeID.Location = New Point(506, 274)
-        comEmployeeID.Margin = New Padding(3, 2, 3, 2)
-        comEmployeeID.Name = "comEmployeeID"
-        comEmployeeID.Size = New Size(133, 23)
-        comEmployeeID.TabIndex = 16
-        ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.Location = New Point(387, 274)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(104, 15)
-        Label12.TabIndex = 17
-        Label12.Text = "Select ID to delete:"
-        ' 
-        ' txtPassword
-        ' 
-        txtPassword.Location = New Point(127, 127)
-        txtPassword.Name = "txtPassword"
-        txtPassword.Size = New Size(200, 23)
-        txtPassword.TabIndex = 14
-        ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.Location = New Point(64, 130)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(57, 15)
-        Label13.TabIndex = 15
-        Label13.Text = "Password"
+        butDeletePayroll.Location = New Point(573, 274)
+        butDeletePayroll.Name = "butDeletePayroll"
+        butDeletePayroll.Size = New Size(180, 23)
+        butDeletePayroll.TabIndex = 16
+        butDeletePayroll.Text = "Delete/Edit Payroll"
+        butDeletePayroll.UseVisualStyleBackColor = True
         ' 
         ' Admin_Menu
         ' 
@@ -497,8 +487,7 @@ Partial Class Admin_Menu
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         ClientSize = New Size(1052, 524)
-        Controls.Add(Label12)
-        Controls.Add(comEmployeeID)
+        Controls.Add(butDeletePayroll)
         Controls.Add(Label1)
         Controls.Add(rtbEmployeePayroll)
         Controls.Add(GroupBox4)
@@ -556,8 +545,6 @@ Partial Class Admin_Menu
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents rtbEmployeePayroll As RichTextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents comEmployeeID As ComboBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents butSlimeLimit As Button
     Friend WithEvents butActivatorLimit As Button
     Friend WithEvents lblActivatorLimit As Label
@@ -567,4 +554,5 @@ Partial Class Admin_Menu
     Friend WithEvents rtbViewSlimes As RichTextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents txtPassword As TextBox
+    Friend WithEvents butDeletePayroll As Button
 End Class
