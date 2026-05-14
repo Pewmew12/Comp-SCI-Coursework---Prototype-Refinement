@@ -247,6 +247,7 @@ Partial Class Overview
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
         ClientSize = New Size(800, 715)
         Controls.Add(butBack)
         Controls.Add(rtbDeliveries)

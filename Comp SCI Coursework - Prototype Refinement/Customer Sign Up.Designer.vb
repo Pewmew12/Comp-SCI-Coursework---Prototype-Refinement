@@ -37,6 +37,8 @@ Partial Class Customer_Sign_Up
         txtStreet = New TextBox()
         txtTown = New TextBox()
         GroupBox1 = New GroupBox()
+        Label9 = New Label()
+        txtPassword = New TextBox()
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
@@ -50,7 +52,7 @@ Partial Class Customer_Sign_Up
         ' 
         ' ButBack
         ' 
-        ButBack.Location = New Point(341, 494)
+        ButBack.Location = New Point(346, 501)
         ButBack.Name = "ButBack"
         ButBack.Size = New Size(75, 23)
         ButBack.TabIndex = 16
@@ -59,7 +61,7 @@ Partial Class Customer_Sign_Up
         ' 
         ' ButSave
         ' 
-        ButSave.Location = New Point(12, 476)
+        ButSave.Location = New Point(12, 483)
         ButSave.Name = "ButSave"
         ButSave.Size = New Size(164, 41)
         ButSave.TabIndex = 15
@@ -72,9 +74,9 @@ Partial Class Customer_Sign_Up
         GroupBox2.Controls.Add(Label4)
         GroupBox2.Controls.Add(txtEmail)
         GroupBox2.Controls.Add(txtPhoneNum)
-        GroupBox2.Location = New Point(12, 167)
+        GroupBox2.Location = New Point(12, 186)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(404, 132)
+        GroupBox2.Size = New Size(404, 127)
         GroupBox2.TabIndex = 13
         GroupBox2.TabStop = False
         GroupBox2.Text = "Contact Information"
@@ -119,7 +121,7 @@ Partial Class Customer_Sign_Up
         GroupBox3.Controls.Add(txtPostcode)
         GroupBox3.Controls.Add(txtStreet)
         GroupBox3.Controls.Add(txtTown)
-        GroupBox3.Location = New Point(12, 305)
+        GroupBox3.Location = New Point(12, 319)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Size = New Size(404, 153)
         GroupBox3.TabIndex = 14
@@ -176,6 +178,8 @@ Partial Class Customer_Sign_Up
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label9)
+        GroupBox1.Controls.Add(txtPassword)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(Label1)
@@ -184,10 +188,26 @@ Partial Class Customer_Sign_Up
         GroupBox1.Controls.Add(txtSName)
         GroupBox1.Location = New Point(12, 12)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(404, 149)
+        GroupBox1.Size = New Size(404, 168)
         GroupBox1.TabIndex = 12
         GroupBox1.TabStop = False
         GroupBox1.Text = "Personal Information"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(62, 124)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(57, 15)
+        Label9.TabIndex = 15
+        Label9.Text = "Password"
+        ' 
+        ' txtPassword
+        ' 
+        txtPassword.Location = New Point(166, 121)
+        txtPassword.Name = "txtPassword"
+        txtPassword.Size = New Size(200, 23)
+        txtPassword.TabIndex = 13
         ' 
         ' Label3
         ' 
@@ -241,7 +261,8 @@ Partial Class Customer_Sign_Up
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(433, 525)
+        BackColor = Color.FromArgb(CByte(255), CByte(255), CByte(192))
+        ClientSize = New Size(433, 536)
         Controls.Add(ButBack)
         Controls.Add(ButSave)
         Controls.Add(GroupBox2)
@@ -279,4 +300,6 @@ Partial Class Customer_Sign_Up
     Friend WithEvents dtpDoB As DateTimePicker
     Friend WithEvents txtFName As TextBox
     Friend WithEvents txtSName As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtPassword As TextBox
 End Class

@@ -42,6 +42,11 @@ Partial Class Log_In
         Label11 = New Label()
         Label12 = New Label()
         Label13 = New Label()
+        txtPassword = New TextBox()
+        Label14 = New Label()
+        Label15 = New Label()
+        Label16 = New Label()
+        Label17 = New Label()
         SuspendLayout()
         ' 
         ' Label1
@@ -55,7 +60,7 @@ Partial Class Log_In
         ' 
         ' butLogin
         ' 
-        butLogin.Location = New Point(80, 217)
+        butLogin.Location = New Point(80, 239)
         butLogin.Name = "butLogin"
         butLogin.Size = New Size(137, 23)
         butLogin.TabIndex = 1
@@ -78,7 +83,7 @@ Partial Class Log_In
         ' 
         ' txtID
         ' 
-        txtID.Location = New Point(195, 166)
+        txtID.Location = New Point(195, 188)
         txtID.Name = "txtID"
         txtID.Size = New Size(238, 23)
         txtID.TabIndex = 4
@@ -95,7 +100,7 @@ Partial Class Log_In
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(80, 169)
+        Label3.Location = New Point(80, 191)
         Label3.Name = "Label3"
         Label3.Size = New Size(45, 15)
         Label3.TabIndex = 6
@@ -103,7 +108,7 @@ Partial Class Log_In
         ' 
         ' butBack
         ' 
-        butBack.Location = New Point(598, 217)
+        butBack.Location = New Point(598, 239)
         butBack.Name = "butBack"
         butBack.Size = New Size(75, 23)
         butBack.TabIndex = 7
@@ -125,7 +130,7 @@ Partial Class Log_In
         lblNotMem.AutoSize = True
         lblNotMem.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         lblNotMem.ForeColor = SystemColors.Highlight
-        lblNotMem.Location = New Point(12, 268)
+        lblNotMem.Location = New Point(12, 290)
         lblNotMem.Name = "lblNotMem"
         lblNotMem.Size = New Size(217, 15)
         lblNotMem.TabIndex = 9
@@ -136,7 +141,7 @@ Partial Class Log_In
         lblForgotID.AutoSize = True
         lblForgotID.Font = New Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         lblForgotID.ForeColor = SystemColors.Highlight
-        lblForgotID.Location = New Point(641, 268)
+        lblForgotID.Location = New Point(641, 290)
         lblForgotID.Name = "lblForgotID"
         lblForgotID.Size = New Size(76, 15)
         lblForgotID.TabIndex = 10
@@ -156,7 +161,7 @@ Partial Class Log_In
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label6.Location = New Point(438, 109)
+        Label6.Location = New Point(436, 109)
         Label6.Name = "Label6"
         Label6.Size = New Size(55, 15)
         Label6.TabIndex = 12
@@ -166,7 +171,7 @@ Partial Class Log_In
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(438, 169)
+        Label7.Location = New Point(438, 191)
         Label7.Name = "Label7"
         Label7.Size = New Size(40, 15)
         Label7.TabIndex = 13
@@ -197,7 +202,7 @@ Partial Class Log_In
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label10.ForeColor = SystemColors.ControlText
-        Label10.Location = New Point(521, 171)
+        Label10.Location = New Point(521, 193)
         Label10.Name = "Label10"
         Label10.Size = New Size(48, 15)
         Label10.TabIndex = 16
@@ -224,17 +229,68 @@ Partial Class Log_In
         ' Label13
         ' 
         Label13.AutoSize = True
-        Label13.Location = New Point(598, 171)
+        Label13.Location = New Point(598, 193)
         Label13.Name = "Label13"
         Label13.Size = New Size(64, 15)
         Label13.TabIndex = 19
         Label13.Text = "09EMeJ117"
         ' 
+        ' txtPassword
+        ' 
+        txtPassword.Location = New Point(195, 135)
+        txtPassword.Name = "txtPassword"
+        txtPassword.Size = New Size(238, 23)
+        txtPassword.TabIndex = 20
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Location = New Point(80, 138)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(57, 15)
+        Label14.TabIndex = 21
+        Label14.Text = "Password"
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label15.Location = New Point(436, 138)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(57, 15)
+        Label15.TabIndex = 22
+        Label15.Text = "Password"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label16.Location = New Point(521, 138)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(42, 15)
+        Label16.TabIndex = 23
+        Label16.Text = "Slime!"
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Location = New Point(598, 138)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(63, 15)
+        Label17.TabIndex = 24
+        Label17.Text = "Password2"
+        ' 
         ' Log_In
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(729, 292)
+        BackColor = Color.FromArgb(CByte(192), CByte(255), CByte(192))
+        ClientSize = New Size(729, 318)
+        Controls.Add(Label17)
+        Controls.Add(Label16)
+        Controls.Add(Label15)
+        Controls.Add(Label14)
+        Controls.Add(txtPassword)
         Controls.Add(Label13)
         Controls.Add(Label12)
         Controls.Add(Label11)
@@ -281,4 +337,9 @@ Partial Class Log_In
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents txtPassword As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
 End Class

@@ -68,6 +68,7 @@ Public Class Admin_Menu
         Dim DoB As String = dtpDoB.Text
         Dim Email As String = txtEmail.Text
         Dim PhoneNumber As String = txtPhoneNumber.Text
+        Dim Password As String = txtPassword.Text
 
         'presence checking
         If txtFName.Text = "" Then
@@ -75,6 +76,9 @@ Public Class Admin_Menu
             Exit Sub
         ElseIf txtSName.Text = "" Then
             MsgBox("Please enter Employee's surname", 48)
+            Exit Sub
+        ElseIf txtPassword.Text = "" Then
+            MsgBox("Please enter Employee's password", 48)
             Exit Sub
         ElseIf txtEmail.Text = "" Then
             MsgBox("Please enter Employee's Email", 48)
@@ -110,7 +114,7 @@ Public Class Admin_Menu
         Dim EmployeeInfo As System.IO.StreamWriter
 
         EmployeeInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("EmployeeInfo.txt"), True)
-        EmployeeInfo.WriteLine(EmployeeID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNumber)
+        EmployeeInfo.WriteLine(EmployeeID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNumber & "," & Password)
         EmployeeInfo.Close()
 
         MsgBox("Employee Added!")
@@ -119,6 +123,7 @@ Public Class Admin_Menu
         txtSName.Text = ""
         txtEmail.Text = ""
         txtPhoneNumber.Text = ""
+        txtPassword.Text = ""
 
         're-loads the employee info into the rich textbox after saving without having to reopen form & for combo box
         rtbCurrentEmployees.LoadFile(Dir$("EmployeeInfo.txt"), RichTextBoxStreamType.PlainText)

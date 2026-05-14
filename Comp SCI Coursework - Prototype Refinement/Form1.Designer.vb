@@ -59,6 +59,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(192), CByte(255), CByte(192))
         ClientSize = New Size(628, 302)
         Controls.Add(Button1)
         Controls.Add(Button2)

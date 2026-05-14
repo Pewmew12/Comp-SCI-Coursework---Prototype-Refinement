@@ -65,6 +65,8 @@ Partial Class Admin_Menu
         Label1 = New Label()
         comEmployeeID = New ComboBox()
         Label12 = New Label()
+        txtPassword = New TextBox()
+        Label13 = New Label()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
@@ -73,6 +75,8 @@ Partial Class Admin_Menu
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label13)
+        GroupBox1.Controls.Add(txtPassword)
         GroupBox1.Controls.Add(butAddEmployee)
         GroupBox1.Controls.Add(txtEmail)
         GroupBox1.Controls.Add(txtFName)
@@ -86,14 +90,14 @@ Partial Class Admin_Menu
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Location = New Point(12, 13)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(369, 259)
+        GroupBox1.Size = New Size(369, 276)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Add Employee"
         ' 
         ' butAddEmployee
         ' 
-        butAddEmployee.Location = New Point(96, 215)
+        butAddEmployee.Location = New Point(96, 232)
         butAddEmployee.Name = "butAddEmployee"
         butAddEmployee.Size = New Size(181, 23)
         butAddEmployee.TabIndex = 9
@@ -102,7 +106,7 @@ Partial Class Admin_Menu
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(127, 146)
+        txtEmail.Location = New Point(127, 167)
         txtEmail.Name = "txtEmail"
         txtEmail.Size = New Size(200, 23)
         txtEmail.TabIndex = 9
@@ -123,7 +127,7 @@ Partial Class Admin_Menu
         ' 
         ' txtPhoneNumber
         ' 
-        txtPhoneNumber.Location = New Point(127, 175)
+        txtPhoneNumber.Location = New Point(127, 196)
         txtPhoneNumber.Name = "txtPhoneNumber"
         txtPhoneNumber.Size = New Size(200, 23)
         txtPhoneNumber.TabIndex = 12
@@ -138,7 +142,7 @@ Partial Class Admin_Menu
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(85, 149)
+        Label4.Location = New Point(85, 170)
         Label4.Name = "Label4"
         Label4.Size = New Size(36, 15)
         Label4.TabIndex = 10
@@ -156,7 +160,7 @@ Partial Class Admin_Menu
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(33, 178)
+        Label6.Location = New Point(33, 199)
         Label6.Name = "Label6"
         Label6.Size = New Size(88, 15)
         Label6.TabIndex = 12
@@ -224,7 +228,7 @@ Partial Class Admin_Menu
         GroupBox2.Controls.Add(txtBank)
         GroupBox2.Controls.Add(txtPayFrequency)
         GroupBox2.Controls.Add(txtPayAmount)
-        GroupBox2.Location = New Point(12, 278)
+        GroupBox2.Location = New Point(12, 298)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(369, 214)
         GroupBox2.TabIndex = 6
@@ -471,11 +475,28 @@ Partial Class Admin_Menu
         Label12.TabIndex = 17
         Label12.Text = "Select ID to delete:"
         ' 
+        ' txtPassword
+        ' 
+        txtPassword.Location = New Point(127, 127)
+        txtPassword.Name = "txtPassword"
+        txtPassword.Size = New Size(200, 23)
+        txtPassword.TabIndex = 14
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Location = New Point(64, 130)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(57, 15)
+        Label13.TabIndex = 15
+        Label13.Text = "Password"
+        ' 
         ' Admin_Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1052, 503)
+        BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        ClientSize = New Size(1052, 524)
         Controls.Add(Label12)
         Controls.Add(comEmployeeID)
         Controls.Add(Label1)
@@ -544,4 +565,6 @@ Partial Class Admin_Menu
     Friend WithEvents butViewSlimes As Button
     Friend WithEvents rtbViewSlimeRecipies As RichTextBox
     Friend WithEvents rtbViewSlimes As RichTextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtPassword As TextBox
 End Class

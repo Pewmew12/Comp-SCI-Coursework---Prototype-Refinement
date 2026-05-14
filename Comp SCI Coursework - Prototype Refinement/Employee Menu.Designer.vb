@@ -315,6 +315,7 @@ Partial Class Employee_Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(192), CByte(255), CByte(255))
         ClientSize = New Size(1047, 450)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox3)

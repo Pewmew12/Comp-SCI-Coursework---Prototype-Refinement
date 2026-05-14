@@ -20,10 +20,7 @@
         Dim SearchFName As String = txtFName.Text
         Dim SearchSName As String = txtSName.Text
         Dim SearchID As String = txtID.Text
-
-        Dim CorrectID As Boolean = False
-        Dim CorrectFName As Boolean = False
-        Dim CorrectSName As Boolean = False
+        Dim SearchPass As String = txtPassword.Text
 
         'presence check for all text boxes
         If txtFName.Text = "" Then
@@ -31,6 +28,9 @@
             Exit Sub
         ElseIf txtSName.Text = "" Then
             MsgBox("Please enter your Surname")
+            Exit Sub
+        ElseIf txtPassword.Text = "" Then
+            MsgBox("Please enter your Password")
             Exit Sub
         ElseIf txtID.Text = "" Then
             MsgBox("Please enter your ID")
@@ -42,22 +42,22 @@
         Dim parts(0 To 5) As String
         Dim line As String
 
+        Dim CorrectID As Boolean = False
+        Dim CorrectFName As Boolean = False
+        Dim CorrectSName As Boolean = False
+        Dim CorrectPass As Boolean = False
+
         file = My.Computer.FileSystem.OpenTextFileReader(Dir("CustomerInfo.txt"))
 
         Do
             line = file.ReadLine()
             parts = line.Split(",")
 
-            If parts(0) = SearchID Then
+            If parts(0) = SearchID And parts(1) = SearchFName And parts(2) = SearchSName And parts(6) = SearchPass Then
                 CorrectID = True
-            End If
-
-            If parts(1) = SearchFName Then
                 CorrectFName = True
-            End If
-
-            If parts(2) = SearchSName Then
                 CorrectSName = True
+                CorrectPass = True
             End If
 
         Loop Until (file.EndOfStream)
@@ -72,6 +72,7 @@
         Dim AdminCorrectID As Boolean = False
         Dim AdminCorrectFName As Boolean = False
         Dim AdminCorrectSName As Boolean = False
+        Dim AdminCorrectPass As Boolean = False
 
         AdminFile = My.Computer.FileSystem.OpenTextFileReader(Dir("AdminInfo.txt"))
 
@@ -79,16 +80,11 @@
             Adminline = AdminFile.ReadLine()
             Adminparts = Adminline.Split(",")
 
-            If Adminparts(0) = SearchID Then
+            If Adminparts(0) = SearchID And Adminparts(1) = SearchFName And Adminparts(2) = SearchSName And Adminparts(6) = SearchPass Then
                 AdminCorrectID = True
-            End If
-
-            If Adminparts(1) = SearchFName Then
                 AdminCorrectFName = True
-            End If
-
-            If Adminparts(2) = SearchSName Then
                 AdminCorrectSName = True
+                AdminCorrectPass = True
             End If
 
         Loop Until (Adminfile.EndOfStream)
@@ -103,6 +99,7 @@
         Dim EmployeeCorrectID As Boolean = False
         Dim EmployeeCorrectFName As Boolean = False
         Dim EmployeeCorrectSName As Boolean = False
+        Dim EmployeeCorrectPass As Boolean = False
 
         EmployeeFile = My.Computer.FileSystem.OpenTextFileReader(Dir("EmployeeInfo.txt"))
 
@@ -110,32 +107,28 @@
             Employeeline = EmployeeFile.ReadLine()
             Employeeparts = Employeeline.Split(",")
 
-            If Employeeparts(0) = SearchID Then
+            If Employeeparts(0) = SearchID And Employeeparts(1) = SearchFName And Employeeparts(2) = SearchSName And Employeeparts(6) = SearchPass Then
                 EmployeeCorrectID = True
-            End If
-
-            If Employeeparts(1) = SearchFName Then
                 EmployeeCorrectFName = True
-            End If
-
-            If Employeeparts(2) = SearchSName Then
                 EmployeeCorrectSName = True
+                EmployeeCorrectPass = True
             End If
 
         Loop Until (EmployeeFile.EndOfStream)
 
         EmployeeFile.Close()
 
-        Dim CorrectAllCustomer As Boolean = (CorrectID = True And CorrectFName = True And CorrectSName = True)
-        Dim CorrectAllAdmin As Boolean = (AdminCorrectID = True And AdminCorrectFName = True And AdminCorrectSName = True)
-        Dim CorrectAllEmployee As Boolean = (EmployeeCorrectID = True And EmployeeCorrectFName = True And EmployeeCorrectSName = True)
-
+        'Dim CorrectAllCustomer As Boolean = (CorrectID = True And CorrectFName = True And CorrectSName = True)
+        Dim CorrectAllAdmin As Boolean = (AdminCorrectID = True And AdminCorrectFName = True And AdminCorrectSName = True And AdminCorrectPass = True)
+        Dim CorrectAllEmployee As Boolean = (EmployeeCorrectID = True And EmployeeCorrectFName = True And EmployeeCorrectSName = True And EmployeeCorrectPass = True)
+        Dim CorrectAllCustomer As Boolean = (CorrectID = True And CorrectFName = True And CorrectSName = True And CorrectPass = True)
 
         If CorrectAllCustomer = True Then
             MsgBox("Log In Sucessful:" & vbCrLf & "Welcome to Angel Slimes!")
             txtFName.Text = ""
             txtSName.Text = ""
             txtID.Text = ""
+            txtPassword.Text = ""
             Customer_Menu.Show()
             Me.Close()
             Exit Sub
@@ -144,6 +137,7 @@
             txtFName.Text = ""
             txtSName.Text = ""
             txtID.Text = ""
+            txtPassword.Text = ""
             Admin_Menu.Show()
             Me.Close()
             Exit Sub
@@ -152,11 +146,12 @@
             txtFName.Text = ""
             txtSName.Text = ""
             txtID.Text = ""
+            txtPassword.Text = ""
             Employee_Menu.Show()
             Me.Close()
             Exit Sub
         ElseIf CorrectAllCustomer = False Or CorrectAllAdmin = False Or CorrectAllEmployee = False Then
-            MsgBox("Incorrect Name/Surname/ID" & vbCrLf & "Please try again", 48)
+            MsgBox("Incorrect Name/Surname/Password/ID" & vbCrLf & "Please try again", 48)
         End If
 
     End Sub

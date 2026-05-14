@@ -21,6 +21,7 @@
         Dim FName As String = txtFName.Text
         Dim SName As String = txtSName.Text
         Dim DoB As Date = dtpDoB.Text
+        Dim Password As String = txtPassword.Text
 
         Dim Email As String = txtEmail.Text
         Dim PhoneNum As String = txtPhoneNum.Text
@@ -34,8 +35,10 @@
             MsgBox("Please enter missing info within Personal Details", 48)
         ElseIf txtSName.Text = "" Then
             MsgBox("Please enter missing info within Personal Details", 48)
+        ElseIf txtPassword.Text = "" Then
+            MsgBox("Please enter missing info within Personal Details", 48)
         End If
-        'DoB does not need a presence check as it cannot be empty (ive tried lol)
+        'DoB does not need a presence check as it cannot be empty (ive tried)
 
         If txtEmail.Text = "" Then
             MsgBox("Please enter missing info within Contact Details", 48)
@@ -69,7 +72,7 @@
         End If
 
         'Range check for postcode, incase they include/exclude the space
-        If Len(Postcode) < 6 Or Len(Postcode) > 7 Then
+        If Len(Postcode) < 6 Or Len(Postcode) > 8 Then
             MsgBox("Please enter a valid postcode", 48)
             Exit Sub
         End If
@@ -102,7 +105,7 @@
 
         'Customer Info Details saved seperately
         CustomerInfo = My.Computer.FileSystem.OpenTextFileWriter(Dir$("CustomerInfo.txt"), True)
-        CustomerInfo.WriteLine(CustomerID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNum)
+        CustomerInfo.WriteLine(CustomerID & "," & FName & "," & SName & "," & DoB & "," & Email & "," & PhoneNum & "," & Password)
         CustomerInfo.Close()
 
         'Customer Mail Details saved seperately
